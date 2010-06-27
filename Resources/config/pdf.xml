@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://www.symfony-project.org/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
+
+  <parameters>
+
+    <parameter key="snappy.pdf.executable">wkhtmltopdf</parameter>
+    <parameter key="snappy.pdf.options" type="collection"></parameter>
+
+    <parameter key="snappy.pdf.class">Snappy\Pdf</parameter>
+
+  </parameters>
+
+  <services>
+
+    <service id="snappy_pdf" class="%snappy.pdf.class%" shared="true">
+      <argument>%snappy.pdf.executable%</argument>
+      <argument>%snappy.pdf.options%</argument>
+    </service>
+    
+  </services>
+</container>

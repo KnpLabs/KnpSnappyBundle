@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://www.symfony-project.org/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
+
+  <parameters>
+
+    <parameter key="snappy.image.executable">wkhtmltoimage</parameter>
+    <parameter key="snappy.image.options" type="collection"></parameter>
+
+    <parameter key="snappy.image.class">Snappy\Image</parameter>
+
+  </parameters>
+
+  <services>
+
+    <service id="snappy_image" class="%snappy.image.class%" shared="true">
+      <argument>%snappy.image.executable%</argument>
+      <argument>%snappy.image.options%</argument>
+    </service>
+    
+  </services>
+</container>
