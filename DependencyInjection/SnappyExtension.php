@@ -2,31 +2,23 @@
 
 namespace Bundle\SnappyBundle\DependencyInjection;
 
-use Symfony\Components\DependencyInjection\Loader\LoaderExtension;
+use Symfony\Components\DependencyInjection\Extension\Extension;
 use Symfony\Components\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Components\DependencyInjection\BuilderConfiguration;
+use Symfony\Components\DependencyInjection\ContainerBuilder;
 
-class SnappyExtension extends LoaderExtension
+class SnappyExtension extends Extension
 {
 
-    public function imageLoad($config)
+    public function imageLoad($config, ContainerBuilder $container)
     {
-        $configuration = new BuilderConfiguration();
-
-        $loader = new XmlFileLoader(__DIR__.'/../Resources/config');
-        $configuration->merge($loader->load('image.xml'));
-
-        return $configuration;
+        $loader = new XmlFileLoader($container, __DIR__.'/../Resources/config');
+        $loader->load('image.xml');
     }
 
-    public function pdfLoad($config)
+    public function pdfLoad($config, ContainerBuilder $container)
     {
-        $configuration = new BuilderConfiguration();
-
-        $loader = new XmlFileLoader(__DIR__.'/../Resources/config');
-        $configuration->merge($loader->load('pdf.xml'));
-
-        return $configuration;
+        $loader = new XmlFileLoader($container, __DIR__.'/../Resources/config');
+        $loader->load('pdf.xml');
     }
 
     /**
@@ -36,12 +28,12 @@ class SnappyExtension extends LoaderExtension
      */
     public function getXsdValidationBasePath()
     {
-        return null;
+        return __DIR__.'/../Resources/config/';
     }
 
     public function getNamespace()
     {
-        return 'http://www.symfony-project.org/schema/dic/symfony';
+        return 'http://www.symfony-project.org/schema/dic/snappy';
     }
 
     public function getAlias()

@@ -3,7 +3,7 @@
 namespace Bundle\SnappyBundle;
 
 use Bundle\SnappyBundle\DependencyInjection\SnappyExtension;
-use Symfony\Foundation\Bundle\Bundle as BaseBundle;
+use Symfony\Framework\Bundle\Bundle as BaseBundle;
 use Symfony\Components\DependencyInjection\ContainerInterface;
 use Symfony\Components\DependencyInjection\Loader\Loader;
 
