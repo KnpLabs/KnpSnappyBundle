@@ -1,24 +1,19 @@
 <?xml version="1.0" ?>
 
-<container xmlns="http://www.symfony-project.org/schema/dic/services"
+<container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-  <parameters>
+    <parameters>
+        <parameter key="knplabs.snappy.image.executable">wkhtmltoimage</parameter>
+        <parameter key="knplabs.snappy.image.options" type="collection"></parameter>
+        <parameter key="knplabs.snappy.image.class">Knplabs\Snappy\Image</parameter>
+    </parameters>
 
-    <parameter key="snappy.image.executable">wkhtmltoimage</parameter>
-    <parameter key="snappy.image.options" type="collection"></parameter>
-
-    <parameter key="snappy.image.class">Snappy\Image</parameter>
-
-  </parameters>
-
-  <services>
-
-    <service id="snappy_image" class="%snappy.image.class%" shared="true">
-      <argument>%snappy.image.executable%</argument>
-      <argument>%snappy.image.options%</argument>
-    </service>
-    
+    <services>
+        <service id="knplabs_snappy_image" class="%knplabs.snappy.image.class%">
+            <argument>%knplabs.snappy.image.executable%</argument>
+            <argument>%knplabs.snappy.image.options%</argument>
+        </service>
   </services>
 </container>

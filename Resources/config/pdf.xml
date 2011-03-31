@@ -1,24 +1,19 @@
 <?xml version="1.0" ?>
 
-<container xmlns="http://www.symfony-project.org/schema/dic/services"
+<container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-  <parameters>
+    <parameters>
+        <parameter key="knplabs.snappy.pdf.executable">wkhtmltopdf</parameter>
+        <parameter key="knplabs.snappy.pdf.options" type="collection"></parameter>
+        <parameter key="knplabs.snappy.pdf.class">Knplabs\Snappy\Image</parameter>
+    </parameters>
 
-    <parameter key="snappy.pdf.executable">wkhtmltopdf</parameter>
-    <parameter key="snappy.pdf.options" type="collection"></parameter>
-
-    <parameter key="snappy.pdf.class">Snappy\Pdf</parameter>
-
-  </parameters>
-
-  <services>
-
-    <service id="snappy_pdf" class="%snappy.pdf.class%" shared="true">
-      <argument>%snappy.pdf.executable%</argument>
-      <argument>%snappy.pdf.options%</argument>
-    </service>
-    
+    <services>
+        <service id="knplabs_snappy_pdf" class="%knplabs.snappy.pdf.class%">
+            <argument>%knplabs.snappy.pdf.executable%</argument>
+            <argument>%knplabs.snappy.pdf.options%</argument>
+        </service>
   </services>
 </container>
