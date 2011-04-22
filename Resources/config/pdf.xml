@@ -7,7 +7,7 @@
     <parameters>
         <parameter key="knplabs.snappy.pdf.executable">wkhtmltopdf</parameter>
         <parameter key="knplabs.snappy.pdf.options" type="collection"></parameter>
-        <parameter key="knplabs.snappy.pdf.class">Knplabs\Snappy\Image</parameter>
+        <parameter key="knplabs.snappy.pdf.class">Knplabs\Snappy\Pdf</parameter>
     </parameters>
 
     <services>
