@@ -5,15 +5,15 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="knplabs.snappy.image.executable">wkhtmltoimage</parameter>
-        <parameter key="knplabs.snappy.image.options" type="collection"></parameter>
-        <parameter key="knplabs.snappy.image.class">Knplabs\Snappy\Image</parameter>
+        <parameter key="knp.snappy.image.executable">wkhtmltoimage</parameter>
+        <parameter key="knp.snappy.image.options" type="collection"></parameter>
+        <parameter key="knp.snappy.image.class">Knp\Snappy\Image</parameter>
     </parameters>
 
     <services>
-        <service id="knplabs_snappy_image" class="%knplabs.snappy.image.class%">
-            <argument>%knplabs.snappy.image.executable%</argument>
-            <argument>%knplabs.snappy.image.options%</argument>
+        <service id="knp_snappy_image" class="%knp.snappy.image.class%">
+            <argument>%knp.snappy.image.executable%</argument>
+            <argument>%knp.snappy.image.options%</argument>
         </service>
   </services>
 </container>

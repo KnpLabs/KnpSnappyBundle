@@ -1,16 +1,16 @@
 <?php
 
-namespace Knplabs\Bundle\SnappyBundle\DependencyInjection;
+namespace Knp\Bundle\SnappyBundle\DependencyInjection;
 
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class KnplabsSnappyExtension extends Extension
+class KnpSnappyExtension extends Extension
 {
     /**
-     * Handles the knplabs_markdown configuration.
+     * Handles the knp_markdown configuration.
      *
      * @param array $configs The configurations being loaded
      * @param ContainerBuilder $container
@@ -66,7 +66,7 @@ class KnplabsSnappyExtension extends Extension
      */
     public function getAlias()
     {
-        return 'knplabs_snappy';
+        return 'knp_snappy';
     }
 
 }

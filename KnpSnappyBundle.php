@@ -1,10 +1,10 @@
 <?php
 
-namespace Knplabs\Bundle\SnappyBundle;
+namespace Knp\Bundle\SnappyBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle as BaseBundle;
 
-class KnplabsSnappyBundle extends BaseBundle
+class KnpSnappyBundle extends BaseBundle
 {
     /**
      * {@inheritdoc}

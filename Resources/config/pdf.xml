@@ -5,15 +5,15 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="knplabs.snappy.pdf.executable">wkhtmltopdf</parameter>
-        <parameter key="knplabs.snappy.pdf.options" type="collection"></parameter>
-        <parameter key="knplabs.snappy.pdf.class">Knplabs\Snappy\Pdf</parameter>
+        <parameter key="knp.snappy.pdf.executable">wkhtmltopdf</parameter>
+        <parameter key="knp.snappy.pdf.options" type="collection"></parameter>
+        <parameter key="knp.snappy.pdf.class">Knp\Snappy\Pdf</parameter>
     </parameters>
 
     <services>
-        <service id="knplabs_snappy_pdf" class="%knplabs.snappy.pdf.class%">
-            <argument>%knplabs.snappy.pdf.executable%</argument>
-            <argument>%knplabs.snappy.pdf.options%</argument>
+        <service id="knp_snappy_pdf" class="%knp.snappy.pdf.class%">
+            <argument>%knp.snappy.pdf.executable%</argument>
+            <argument>%knp.snappy.pdf.options%</argument>
         </service>
   </services>
 </container>
