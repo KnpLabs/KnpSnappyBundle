@@ -39,15 +39,18 @@ Finally, you can enable it in your kernel:
 Configuration
 -------------
 
-By default, the bundle uses the `wkhtmltopdf` and `wkhtmltoimage` binaries from your path.
-Of course, you can change them through the configuration of your application:
+If you need to change the binaries, change the instance options or even disable one or both services, you can do it through the configuration.
 
     # app/config/config.yml
-
     knp_snappy:
-        binary:
-            pdf:    /usr/local/bin/wkhtmltopdf      # path to wkhtmltopdf
-            image:  /usr/local/bin/wkhtmltoimage    # path to wkhtmltoimage
+        pdf:
+            enabled:    true
+            binary:     /usr/local/bin/wkhtmltopdf
+            options:    []
+        image:
+            enabled:    true
+            binary:     /usr/local/bin/wkhtmltoimage
+            options:    []
 
 Usage
 -----
