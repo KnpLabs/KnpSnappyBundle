@@ -1,0 +1,6 @@
+imports:
+    - { resource: 'base.yml' }
+
+knp_snappy:
+    pdf:
+        enabled: false
