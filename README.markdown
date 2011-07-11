@@ -1,13 +1,34 @@
-Provide HTML to PDF/image to your Symfony2 projects.
+KnpSnappyBundle
+===============
 
-## Installation
+[Snappy][snappy] is a PHP (5.3+) wrapper for the [wkhtmltopdf][wkhtmltopdf] conversion utility.
+It allows you to generate either pdf or image files from your html documents, using the webkit engine.
 
-Download SnappyBundle in your `vendor/bundles/Knp/Bundle/SnappyBundle` dir.
+The KnpSnappyBundle provides a simple integration for your Symfony project.
+
+Installation
+------------
+
+*The commands accompanying each step assume that you are versioning your project using git and you manage your vendors as submodules.
+If not you can ignore them.*
+
+First, you must copy the [Snappy][snappy] source in the `vendor/snappy` directory of your project:
+
+    git submodule add https://github.com/knplabs/snappy.git vendor/snappy
+
+And the KnpSnappyBundle source in the `vendor/bundles/Knp/Bundle/SnappyBundle` directory:
 
     git submodule add https://github.com/knplabs/SnappyBundle.git vendor/bundles/Knp/Bundle/SnappyBundle
 
-Enable it in your `app/AppKernel.php`:
+Then, you can register both source directories in your autoloader:
 
+    $loader->registerNamespaces(array(
+        ...
+        'Knp'                        => array(__DIR__.'/../src', __DIR__.'/../vendor/bundles', __DIR__.'/../vendor'),
+
+Finally, you can enable it in your kernel:
+
+    // app/AppKernel.php
     public function registerBundles()
     {
         $bundles = array(
@@ -15,99 +36,71 @@ Enable it in your `app/AppKernel.php`:
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             ...
 
-And in your `autoload.php`:
+Configuration
+-------------
 
-    $loader->registerNamespaces(array(
-        ...
-        'Knp'                        => array(__DIR__.'/../src', __DIR__.'/../vendor/bundles', __DIR__.'/../vendor'),
-    
-    
-Then, enable it in your `app/config.yml`:
+By default, the bundle uses the `wkhtmltopdf` and `wkhtmltoimage` binaries from your path.
+Of course, you can change them through the configuration of your application:
+
+    # app/config/config.yml
 
     knp_snappy:
-        image: ~      # Enable the snappy html to image service
-        pdf: ~        # Enable the snappy pdf to image service
-    
-    parameters:
-        knp.snappy.pdf.executable: /usr/local/bin/wkhtmltopdf
-        knp.snappy.image.executable: /usr/local/bin/wkhtmltoimage
+        binary:
+            pdf:    /usr/local/bin/wkhtmltopdf      # path to wkhtmltopdf
+            image:  /usr/local/bin/wkhtmltoimage    # path to wkhtmltoimage
 
-## Requirements
+Usage
+-----
 
-You should have [Snappy](http://github.com/knplabs/snappy) (php5.3 branch) installed in your `vendor` dir and registered in your autoload.
+The bundle registers two services:
 
-### Snappy
+ - the `knp_snappy.image` service allows you to generate images;
+ - the `knp_snappy.pdf` service allows you to generate pdf files.
 
-Download Snappy in `vendor/knp-snappy/snappy`:
+### Generate an image from an URL
 
-    git submodule add http://github.com/knplabs/snappy.git vendor/knp-snappy
+    $container->get('knp_snappy.image')->generate('http://www.google.fr', '/path/to/the/image.jpg');
 
-And edit your `app/autoload.php`:
+### Generate a pdf document from an URL
 
-    $loader->registerNamespaces(array(
-        ...
-        'Knp\\Snappy'                => __DIR__.'/../vendor/knp-snappy/src',
+    $container->get('knp_snappy.pdf')->generate('http://www.google.fr', '/path/to/the/file.pdf');
 
-### wkhtmltopdf
+### Render an image as response from a controller
 
-You also need the wkhtmltopdf and wkhtmltoimage executables provided by [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/).
-
-## Usage
-
-To save a screenshot of an url:
-
-    $this->container->get('knp_snappy_image')->save('http://www.google.fr', '/tmp/a.jpg');
-
-To create a pdf in your controller:
+    $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
+        'some'  => $vars
+    ));
 
     return new Response(
-        $this->container->get('knp_snappy_pdf')->get('http://www.google.fr'),
+        $this->get('knp_snappy.image')->getOutputFromHtml($html),
         200,
         array(
-            'Content-Type' => 'application/pdf',
-            'Content-Disposition' => 'attachment; filename="file.pdf',
+            'Content-Type'          => 'image/jpg',
+            'Content-Disposition'   => 'filename="image.jpg"'
         )
     );
 
-To output an image in your controller:
+### Render a pdf document as response from a controller
+
+    $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
+        'some'  => $vars
+    ));
 
     return new Response(
-        $this->container->get('knp_snappy_image')->get('http://www.google.fr'),
+        $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
         200,
         array(
-            'Content-Type' => 'image/jpg',
-            'Content-Disposition' => 'filename="bla.jpg',
+            'Content-Type'          => 'application/pdf',
+            'Content-Disposition'   => 'attachment; filename="file.pdf"
         )
     );
 
-You can also transform YOUR html into image or PDF:
+Credits
+-------
 
-    $html = '<html><body><h1>Hello Knp Labs</h1><h2>So now what?</h2>';
-    return new Response(
-        $this->container->get('knp_snappy_image')->get($html),
-        200,
-        array(
-            'Content-Type' => 'image/jpg',
-            'Content-Disposition' => 'filename="bla.jpg',
-        )
-    );
+SnappyBundle and [Snappy][snappy] are based on the awesome [wkhtmltopdf][wkhtmltopdf].
+SnappyBundle has been developed by [Knp Labs][knplabs].
 
-Or better:
-
-    $html = $this->container->get('templating')->render('KnpCorporate:Front:index.html.twig', array('title' => 'lorem'));
-    return new Response(
-        $this->get('knp_snappy_image')->get($html),
-        200,
-        array(
-            'Content-Type' => 'image/jpg',
-            'Content-Disposition' => 'filename="bla.jpg',
-        )
-    );
-    
-Don't forget to use absolute urls!
-
-## Credits
-
-SnappyBundle and Snappy are based on the awesome wkhtmltopdf.
-SnappyBundle has been developed by Knp Labs, our [Symfony2 webagency](http://www.knplabs.com).
-
+[snappy]: https://github.com/knplabs/snappy
+[wkhtmltopdf]: http://code.google.com/p/wkhtmltopdf/
+[knplabs]: http://www.knplabs.com
