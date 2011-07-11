@@ -4,16 +4,19 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <parameters>
-        <parameter key="knp.snappy.pdf.executable">wkhtmltopdf</parameter>
-        <parameter key="knp.snappy.pdf.options" type="collection"></parameter>
-        <parameter key="knp.snappy.pdf.class">Knp\Snappy\Pdf</parameter>
-    </parameters>
-
     <services>
-        <service id="knp_snappy_pdf" class="%knp.snappy.pdf.class%">
-            <argument>%knp.snappy.pdf.executable%</argument>
-            <argument>%knp.snappy.pdf.options%</argument>
+
+        <service id="knp_snappy.pdf.internal_generator" class="Knp\Snappy\Pdf" public="false">
+            <argument>%knp_snappy.pdf.binary%</argument>
+            <argument>%knp_snappy.pdf.options%</argument>
         </service>
-  </services>
+
+        <service id="knp_snappy.pdf" class="Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator">
+            <argument type="service" id="knp_snappy.pdf.internal_generator" />
+            <argument type="service" id="logger" on-invalid="null" />
+            <tag name="monolog.logger" channel="snappy" />
+        </service>
+
+    </services>
+
 </container>
