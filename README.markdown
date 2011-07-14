@@ -94,7 +94,7 @@ The bundle registers two services:
         200,
         array(
             'Content-Type'          => 'application/pdf',
-            'Content-Disposition'   => 'attachment; filename="file.pdf"
+            'Content-Disposition'   => 'attachment; filename="file.pdf"'
         )
     );
 
