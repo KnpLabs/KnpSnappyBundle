@@ -39,7 +39,7 @@ class LoggableGenerator implements GeneratorInterface
     /**
      * {@inheritDoc}
      */
-    public function generate($input, $output, array $options, $overwrite = false)
+    public function generate($input, $output, array $options = array(), $overwrite = false)
     {
         $this->logDebug(sprintf('Generate from file (%s) to file (%s).', $input, $output));
 
@@ -49,7 +49,7 @@ class LoggableGenerator implements GeneratorInterface
     /**
      * {@inheritDoc}
      */
-    public function generateFromHtml($html, $output, array $options, $overwrite = false)
+    public function generateFromHtml($html, $output, array $options = array(), $overwrite = false)
     {
         $this->logDebug(sprintf('Generate from HTML (%s) to file (%s).', substr($html, 0, 100), $output));
 
@@ -59,7 +59,7 @@ class LoggableGenerator implements GeneratorInterface
     /**
      * {@inheritDoc}
      */
-    public function getOutput($input, array $options)
+    public function getOutput($input, array $options = array())
     {
         $this->logDebug(sprintf('Output from file (%s).', $input));
 
@@ -69,7 +69,7 @@ class LoggableGenerator implements GeneratorInterface
     /**
      * {@inheritDoc}
      */
-    public function getOutputFromHtml($html, array $options)
+    public function getOutputFromHtml($html, array $options = array())
     {
         $this->logDebug(sprintf('Output from HTML (%s).', substr($html, 0, 100)));
 
