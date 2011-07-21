@@ -24,7 +24,8 @@ Then, you can register both source directories in your autoloader:
 
     $loader->registerNamespaces(array(
         ...
-        'Knp'                        => array(__DIR__.'/../src', __DIR__.'/../vendor/bundles', __DIR__.'/../vendor'),
+        'Knp'                        => __DIR__.'/../vendor/bundles',
+        'Knp\\Snappy'                => __DIR__.'/../vendor/snappy/src',
 
 Finally, you can enable it in your kernel:
 
