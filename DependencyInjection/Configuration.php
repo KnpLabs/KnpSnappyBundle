@@ -15,6 +15,15 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
+        $fixOptionKeys = function ($options) {
+            $fixedOptions = array();
+            foreach ($options as $key => $value) {
+                $fixedOptions[str_replace('_', '-', $key)] = $value;
+            }
+
+            return $fixedOptions;
+        };
+
         $treeBuilder = new TreeBuilder();
 
         $rootNode = $treeBuilder->root('knp_snappy');
@@ -28,6 +37,9 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('options')
                             ->performNoDeepMerging()
                             ->useAttributeAsKey('name')
+                            ->beforeNormalization()
+                                ->always($fixOptionKeys)
+                            ->end()
                             ->prototype('scalar')->end()
                         ->end()
                     ->end()
@@ -40,6 +52,9 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('options')
                             ->performNoDeepMerging()
                             ->useAttributeAsKey('name')
+                            ->beforeNormalization()
+                                ->always($fixOptionKeys)
+                            ->end()
                             ->prototype('scalar')->end()
                         ->end()
                     ->end()

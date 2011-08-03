@@ -83,6 +83,38 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                         'options'   => array()
                     )
                 )
+            ),
+            array(
+                array(
+                    array(
+                        'pdf'   => array(
+                            'options'   => array(
+                                'foo-bar'   => 'baz'
+                            )
+                        ),
+                        'image' => array(
+                            'options'   => array(
+                                'bag-baf'   => 'bak'
+                            )
+                        )
+                    )
+                ),
+                array(
+                    'pdf'   => array(
+                        'enabled'   => true,
+                        'binary'    => 'wkhtmltopdf',
+                        'options'   => array(
+                            'foo-bar'   => 'baz'
+                        )
+                    ),
+                    'image' => array(
+                        'enabled'   => true,
+                        'binary'    => 'wkhtmltoimage',
+                        'options'   => array(
+                            'bag-baf'   => 'bak'
+                        )
+                    )
+                )
             )
         );
     }
