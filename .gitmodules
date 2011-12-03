@@ -3,4 +3,4 @@
 	url = https://github.com/symfony/symfony.git
 [submodule "Resources/vendor/snappy"]
 	path = Resources/vendor/snappy
-	url = https://github.com/knplabs/snappy.git
+	url = https://github.com/KnpLabs/snappy.git
