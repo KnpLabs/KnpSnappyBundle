@@ -14,11 +14,11 @@ If not you can ignore them.*
 
 First, you must copy the [Snappy][snappy] source in the `vendor/snappy` directory of your project:
 
-    git submodule add https://github.com/knplabs/snappy.git vendor/snappy
+    git submodule add https://github.com/KnpLabs/snappy.git vendor/snappy
 
 And the KnpSnappyBundle source in the `vendor/bundles/Knp/Bundle/SnappyBundle` directory:
 
-    git submodule add https://github.com/knplabs/KnpSnappyBundle.git vendor/bundles/Knp/Bundle/SnappyBundle
+    git submodule add https://github.com/KnpLabs/KnpSnappyBundle.git vendor/bundles/Knp/Bundle/SnappyBundle
 
 Then, you can register both source directories in your autoloader:
 
@@ -103,8 +103,8 @@ Credits
 -------
 
 SnappyBundle and [Snappy][snappy] are based on the awesome [wkhtmltopdf][wkhtmltopdf].
-SnappyBundle has been developed by [Knp Labs][knplabs].
+SnappyBundle has been developed by [KnpLabs][KnpLabs].
 
-[snappy]: https://github.com/knplabs/snappy
+[snappy]: https://github.com/KnpLabs/snappy
 [wkhtmltopdf]: http://code.google.com/p/wkhtmltopdf/
-[knplabs]: http://www.knplabs.com
+[KnpLabs]: http://www.knplabs.com
