@@ -19,6 +19,16 @@ First, you must copy the [Snappy][snappy] source in the `vendor/snappy` director
 And the KnpSnappyBundle source in the `vendor/bundles/Knp/Bundle/SnappyBundle` directory:
 
     git submodule add https://github.com/KnpLabs/KnpSnappyBundle.git vendor/bundles/Knp/Bundle/SnappyBundle
+    
+Or use deps file:
+    
+    [snappy]
+        git=https://github.com/KnpLabs/snappy.git
+        target=snappy
+
+    [KnpSnappyBundle]
+        git=https://github.com/KnpLabs/KnpSnappyBundle.git
+        target=/bundles/Knp/Bundle/SnappyBundle
 
 Then, you can register both source directories in your autoloader:
 
