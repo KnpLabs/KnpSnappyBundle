@@ -25,8 +25,7 @@
         </service>
 
         <service id="knp_snappy.pdf.listener" class="%knp_snappy.pdf.listener.class%">
-            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" />
-		<tag name="kernel.event_listener" event="kernel.controller" method="onKernelController" />
+            <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController" />
             <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" priority="-300" />
             <argument id="knp_snappy.pdf" type="service" />
             <argument type="service" id="annotation_reader" />

@@ -8,11 +8,11 @@
 
 namespace Knp\Bundle\SnappyBundle\EventListener;
 
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
 use Knp\Bundle\SnappyBundle\Annotation\AbstractAnnotation;
+use Knp\Bundle\SnappyBundle\Annotation\SnappyPDF;
 use Symfony\Component\HttpFoundation\Response;
 
 use Knp\Snappy\GeneratorInterface;
@@ -35,11 +35,6 @@ class PdfListener
         $this->reader = $reader;
     }
     
-    public function onKernelRequest(GetResponseEvent $event)
-    {
-        $request = $event->getRequest();
-    }
-    
     public function onKernelController(FilterControllerEvent $event)
     {
         if (!is_array($controller = $event->getController())) {
@@ -55,30 +50,35 @@ class PdfListener
                 $request->attributes->set('_'.$configuration->getAliasName(), $configuration);
             }
         }
+        
+        if(!($annotation = $request->get('_snappyPDF')))
+        {
+            $annotation = new SnappyPDF(array('active' => true));
+            $request->attributes->set('_'.$annotation->getAliasName(), $annotation);
+        }
+        if($request->getRequestFormat() != 'pdf')
+            $annotation->setActive(false);
     }
     
     public function onKernelResponse(FilterResponseEvent $event)
     {
-		$request = $event->getRequest();
-		$response = $event->getResponse();
-		
-		if(
-			$request->getRequestFormat() == 'pdf' and
-			$response->getStatusCode() == 200 and
-			(!($annotation = $request->get('_snappyPDF')) or $annotation->isActive())
-		)
-		{
-			$content = $this->snappy->getOutputFromHtml($response->getContent());
-			
-			$headers = array(
-				'Content-Length'      => strlen($content),
-				'Content-Type'        => 'application/pdf',
-				'Content-Disposition' => $annotation->getDisposition(),
-			);
-			foreach($headers as $key => $value)
-				$response->headers->set($key, $value);
-			
-			$response->setContent($content);
-		}
+        $request = $event->getRequest();
+        $response = $event->getResponse();
+        $annotation = $request->get('_snappyPDF');
+        
+        if($annotation and $annotation->isActive() and $response->getStatusCode() == 200)
+        {
+            $content = $this->snappy->getOutputFromHtml($response->getContent());
+            
+            $headers = array(
+                'Content-Length'      => strlen($content),
+                'Content-Type'        => 'application/pdf',
+                'Content-Disposition' => $annotation->getDisposition(),
+            );
+            foreach($headers as $key => $value)
+                $response->headers->set($key, $value);
+            
+            $response->setContent($content);
+        }
     }
 }
