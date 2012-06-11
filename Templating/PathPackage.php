@@ -30,7 +30,7 @@ class PathPackage extends BasePathPackage
      */
     public function __construct(Request $request, $version = null, $format = null)
     {
-        if($request->getRequestFormat() == 'pdf')
+        if(!$request->get('_snappyPDF') or $request->get('_snappyPDF')->isActive())
             parent::__construct(realpath(__DIR__.'/../../../../../../web'.$request->getBasePath()), $version, $format);
         else
             parent::__construct($request->getBasePath(), $version, $format);

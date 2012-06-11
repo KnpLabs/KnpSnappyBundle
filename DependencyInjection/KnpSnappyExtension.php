@@ -21,8 +21,6 @@ class KnpSnappyExtension extends Extension
         $processor = new Processor();
         $config = $processor->processConfiguration($configuration, $configs);
 
-        $loader->load('services.xml');
-
         if ($config['pdf']['enabled']) {
             $loader->load('pdf.xml');
             $container->setParameter('knp_snappy.pdf.binary', $config['pdf']['binary']);

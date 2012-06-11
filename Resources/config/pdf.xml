@@ -4,6 +4,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+
+        <parameter key="templating.asset.path_package.class">Knp\Bundle\SnappyBundle\Templating\PathPackage</parameter>
+        <parameter key="knp_snappy.pdf.listener.class">Knp\Bundle\SnappyBundle\EventListener\PdfListener</parameter>
+
+    </parameters>
+
     <services>
 
         <service id="knp_snappy.pdf.internal_generator" class="Knp\Snappy\Pdf" public="false">
@@ -17,6 +24,13 @@
             <tag name="monolog.logger" channel="snappy" />
         </service>
 
+        <service id="knp_snappy.pdf.listener" class="%knp_snappy.pdf.listener.class%">
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" />
+		<tag name="kernel.event_listener" event="kernel.controller" method="onKernelController" />
+            <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" priority="-300" />
+            <argument id="knp_snappy.pdf" type="service" />
+            <argument type="service" id="annotation_reader" />
+        </service>
     </services>
 
 </container>
