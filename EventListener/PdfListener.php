@@ -28,11 +28,13 @@ class PdfListener
 {
     private $snappy;
     private $reader;
+    private $sections;
     
-    public function __construct(GeneratorInterface $snappy, Reader $reader)
+    public function __construct(GeneratorInterface $snappy, Reader $reader, $sections)
     {
         $this->snappy = $snappy;
         $this->reader = $reader;
+        $this->sections = $sections;
     }
     
     public function onKernelController(FilterControllerEvent $event)
@@ -68,7 +70,20 @@ class PdfListener
         
         if($annotation and $annotation->isActive() and $response->getStatusCode() == 200)
         {
-            $content = $this->snappy->getOutputFromHtml($response->getContent());
+            $options = array();
+            $content = $response->getContent();
+            
+            if($this->sections)
+            {
+                $doc = new \DOMDocument;
+                $doc->loadHTML($content);
+                
+                $options['header'] = $this->isolate($doc,'header','global')->saveHTML();
+                $options['footer'] = $this->isolate($doc,'footer','global')->saveHTML();
+                $content = $this->isolate($doc,'content','global')->saveHTML();
+            }
+            
+            $content = $this->snappy->getOutputFromHtml($content,$options);
             
             $headers = array(
                 'Content-Length'      => strlen($content),
@@ -80,5 +95,22 @@ class PdfListener
             
             $response->setContent($content);
         }
+    }
+    
+    public function isolate($doc,$id,$parent)
+    {
+        $doc = clone $doc;
+        
+        if(! $element = $doc->getElementById($id))
+            return null;
+        
+        $parent = $doc->getElementById($parent);
+        
+        while($parent->hasChildNodes())
+            $parent->removeChild($parent->childNodes->item(0));
+        
+        $parent->appendChild($element);
+        
+        return $doc;
     }
 }
