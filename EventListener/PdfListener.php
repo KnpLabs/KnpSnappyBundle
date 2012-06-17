@@ -78,9 +78,14 @@ class PdfListener
                 $doc = new \DOMDocument;
                 $doc->loadHTML($content);
                 
-                $options['header'] = $this->isolate($doc,'header','global')->saveHTML();
-                $options['footer'] = $this->isolate($doc,'footer','global')->saveHTML();
-                $content = $this->isolate($doc,'content','global')->saveHTML();
+                if($header = $this->isolate($doc,'header','global'))
+                    $options['header'] = $header->saveHTML();
+                
+                if($footer = $this->isolate($doc,'footer','global'))
+                    $options['footer'] = $footer->saveHTML();
+                
+                if($content = $this->isolate($doc,'content','global'))
+                    $content = $content->saveHTML();
             }
             
             $content = $this->snappy->getOutputFromHtml($content,$options);
