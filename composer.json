@@ -23,6 +23,8 @@
         "knplabs/knp-snappy":       "*"
     },
 
+    "minimum-stability": "dev",
+
     "autoload": {
         "psr-0": {
             "Knp\\Bundle\\SnappyBundle": ""
