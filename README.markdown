@@ -6,21 +6,20 @@ It allows you to generate either pdf or image files from your html documents, us
 
 The KnpSnappyBundle provides a simple integration for your Symfony project.
 
+[![knpbundles.com](http://knpbundles.com/KnpLabs/KnpSnappyBundle/badge-short)](http://knpbundles.com/KnpLabs/KnpSnappyBundle)
+
 Installation
 ------------
 
-*The commands accompanying each step assume that you are versioning your project using git and you manage your vendors as submodules.
-If not you can ignore them.*
+With [composer](http://packagist.org), add:
 
-First, you must copy the [Snappy][snappy] source in the `vendor/snappy` directory of your project:
+    {
+        require: {
+            "knplabs/knp-snappy-bundle": "dev-master"
+        }
+    }
 
-    git submodule add https://github.com/KnpLabs/snappy.git vendor/snappy
-
-And the KnpSnappyBundle source in the `vendor/bundles/Knp/Bundle/SnappyBundle` directory:
-
-    git submodule add https://github.com/KnpLabs/KnpSnappyBundle.git vendor/bundles/Knp/Bundle/SnappyBundle
-    
-Or use deps file:
+Or use `deps` file:
     
     [snappy]
         git=https://github.com/KnpLabs/snappy.git
@@ -30,7 +29,24 @@ Or use deps file:
         git=https://github.com/KnpLabs/KnpSnappyBundle.git
         target=/bundles/Knp/Bundle/SnappyBundle
 
-Then, you can register both source directories in your autoloader:
+Or define as submodules:
+
+    # Install snappy library
+    git submodule add https://github.com/KnpLabs/snappy.git vendor/snappy
+    
+    # Install bundle
+    git submodule add https://github.com/KnpLabs/KnpSnappyBundle.git vendor/bundles/Knp/Bundle/SnappyBundle
+    
+Or just clone the repos:
+    
+    # Install snappy library
+    git clone https://github.com/KnpLabs/snappy.git vendor/snappy
+
+    # Install bundle
+    git clone https://github.com/KnpLabs/KnpSnappyBundle.git vendor/bundles/Knp/Bundle/SnappyBundle
+
+
+Then, you should register both source directories in your autoloader unless you are using [composer](http://packagist.org):
 
     $loader->registerNamespaces(array(
         ...
