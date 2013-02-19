@@ -124,6 +124,19 @@ The bundle registers two services:
             'Content-Disposition'   => 'attachment; filename="file.pdf"'
         )
     );
+    
+### Render a pdf document with a relative url inside like css files
+
+    $pageUrl = $this->generateUrl('homepage', array(), true); // use absolute path!
+    
+    return new Response(
+        $this->get('knp_snappy.pdf')->getOutput($pageUrl),
+        200,
+        array(
+            'Content-Type'          => 'application/pdf',
+            'Content-Disposition'   => 'attachment; filename="file.pdf"'
+        )
+    );
 
 Credits
 -------
