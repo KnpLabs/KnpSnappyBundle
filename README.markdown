@@ -95,6 +95,18 @@ The bundle registers two services:
 
     $container->get('knp_snappy.pdf')->generate('http://www.google.fr', '/path/to/the/file.pdf');
 
+### Generate a pdf document from a twig view
+
+    $this->get('knp_snappy.pdf')->generateFromHtml(
+        $this->renderView(
+            'MyBundle:Foo:bar.html.twig',
+            array(
+                'some'  => $vars
+            )
+        ),
+        '/path/to/the/file.pdf'
+    );
+
 ### Render an image as response from a controller
 
     $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
