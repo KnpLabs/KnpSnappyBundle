@@ -21,7 +21,6 @@
             <argument type="service" id="logger" on-invalid="null" />
             <tag name="monolog.logger" channel="snappy" />
         </service>
-
     </services>
 
 </container>

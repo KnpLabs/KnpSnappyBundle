@@ -25,6 +25,10 @@ class KnpSnappyExtension extends Extension
             $loader->load('pdf.xml');
             $container->setParameter('knp_snappy.pdf.binary', $config['pdf']['binary']);
             $container->setParameter('knp_snappy.pdf.options', $config['pdf']['options']);
+            if ($config['pdf']['annotation']['enabled']) {
+                $loader->load('pdf-annotation.xml');
+                $container->setParameter('knp_snappy.pdf.sections', $config['pdf']['annotation']['sections']);
+            }
         }
 
         if ($config['image']['enabled']) {
