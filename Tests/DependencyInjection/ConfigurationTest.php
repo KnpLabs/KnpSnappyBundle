@@ -27,12 +27,14 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                     'pdf'   => array(
                         'enabled'   => true,
                         'binary'    => 'wkhtmltopdf',
-                        'options'   => array()
+                        'options'   => array(),
+                        'env'       => array(),
                     ),
                     'image' => array(
                         'enabled'   => true,
                         'binary'    => 'wkhtmltoimage',
-                        'options'   => array()
+                        'options'   => array(),
+                        'env'       => array(),
                     )
                 )
             ),
@@ -41,16 +43,19 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                     array(
                         'pdf'   => array(
                             'binary'    => '/path/to/wkhtmltopdf',
-                            'options'   => array('foo' => 'bar')
+                            'options'   => array('foo' => 'bar'),
+                            'env'       => array(),
                         ),
                         'image' => array(
                             'binary'    => '/path/to/wkhtmltoimage',
-                            'options'   => array('baz'  => 'bat', 'baf' => 'bag')
+                            'options'   => array('baz'  => 'bat', 'baf' => 'bag'),
+                            'env'       => array(),
                         )
                     ),
                     array(
                         'pdf'   => array(
-                            'options'   => array('bak' => 'bap')
+                            'options'   => array('bak' => 'bap'),
+                            'env'       => array(),
                         )
                     )
                 ),
@@ -58,12 +63,14 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                     'pdf'   => array(
                         'enabled'   => true,
                         'binary'    => '/path/to/wkhtmltopdf',
-                        'options'   => array('bak' => 'bap')
+                        'options'   => array('bak' => 'bap'),
+                        'env'       => array(),
                     ),
                     'image' => array(
                         'enabled'   => true,
                         'binary'    => '/path/to/wkhtmltoimage',
-                        'options'   => array('baz' => 'bat', 'baf' => 'bag')
+                        'options'   => array('baz' => 'bat', 'baf' => 'bag'),
+                        'env'       => array(),
                     )
                 )
             ),
@@ -75,12 +82,14 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                     'pdf'   => array(
                         'enabled'   => false,
                         'binary'    => 'wkhtmltopdf',
-                        'options'   => array()
+                        'options'   => array(),
+                        'env'       => array(),
                     ),
                     'image' => array(
                         'enabled'   => true,
                         'binary'    => 'wkhtmltoimage',
-                        'options'   => array()
+                        'options'   => array(),
+                        'env'       => array(),
                     )
                 )
             ),
@@ -90,12 +99,14 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                         'pdf'   => array(
                             'options'   => array(
                                 'foo-bar'   => 'baz'
-                            )
+                            ),
+                            'env'       => array(),
                         ),
                         'image' => array(
                             'options'   => array(
                                 'bag-baf'   => 'bak'
-                            )
+                            ),
+                            'env'       => array(),
                         )
                     )
                 ),
@@ -105,14 +116,16 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                         'binary'    => 'wkhtmltopdf',
                         'options'   => array(
                             'foo-bar'   => 'baz'
-                        )
+                        ),
+                        'env'       => array(),
                     ),
                     'image' => array(
                         'enabled'   => true,
                         'binary'    => 'wkhtmltoimage',
                         'options'   => array(
                             'bag-baf'   => 'bak'
-                        )
+                        ),
+                        'env'       => array(),
                     )
                 )
             )

@@ -14,6 +14,7 @@
         <service id="knp_snappy.image.internal_generator" class="%knp_snappy.image.internal_generator.class%" public="false">
             <argument>%knp_snappy.image.binary%</argument>
             <argument>%knp_snappy.image.options%</argument>
+            <argument>%knp_snappy.image.env%</argument>
         </service>
 
         <service id="knp_snappy.image" class="%knp_snappy.image.class%">

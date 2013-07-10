@@ -25,12 +25,14 @@ class KnpSnappyExtension extends Extension
             $loader->load('pdf.xml');
             $container->setParameter('knp_snappy.pdf.binary', $config['pdf']['binary']);
             $container->setParameter('knp_snappy.pdf.options', $config['pdf']['options']);
+            $container->setParameter('knp_snappy.pdf.env', $config['pdf']['env']);
         }
 
         if ($config['image']['enabled']) {
             $loader->load('image.xml');
             $container->setParameter('knp_snappy.image.binary', $config['image']['binary']);
             $container->setParameter('knp_snappy.image.options', $config['image']['options']);
+            $container->setParameter('knp_snappy.image.env', $config['image']['env']);
         }
     }
 }

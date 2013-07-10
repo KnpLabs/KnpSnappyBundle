@@ -2,7 +2,7 @@
 
 namespace Knp\Bundle\SnappyBundle\Tests;
 
-use Symfony\Component\HttpKernel\Util\Filesystem;
+use Symfony\Component\Filesystem\Filesystem;
 
 class FunctionalTest extends \PHPUnit_Framework_TestCase
 {

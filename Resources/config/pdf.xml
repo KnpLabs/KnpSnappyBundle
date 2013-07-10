@@ -14,6 +14,7 @@
         <service id="knp_snappy.pdf.internal_generator" class="%knp_snappy.pdf.internal_generator.class%" public="false">
             <argument>%knp_snappy.pdf.binary%</argument>
             <argument>%knp_snappy.pdf.options%</argument>
+            <argument>%knp_snappy.pdf.env%</argument>
         </service>
 
         <service id="knp_snappy.pdf" class="%knp_snappy.pdf.class%">
