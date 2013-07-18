@@ -77,6 +77,16 @@ class LoggableGenerator implements GeneratorInterface
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public function setOption($name, $value)
+    {
+        $this->logDebug(sprintf('Set option %s = %s.', $name, $value));
+
+        return $this->generator->setOption($name, $value);
+    }
+    
+    /**
      * Logs the given debug message if the logger is configured or do nothing
      * otherwise
      *
