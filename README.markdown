@@ -19,41 +19,7 @@ With [composer](http://packagist.org), add:
         }
     }
 
-Or use `deps` file:
-    
-    [snappy]
-        git=https://github.com/KnpLabs/snappy.git
-        target=snappy
-
-    [KnpSnappyBundle]
-        git=https://github.com/KnpLabs/KnpSnappyBundle.git
-        target=/bundles/Knp/Bundle/SnappyBundle
-
-Or define as submodules:
-
-    # Install snappy library
-    git submodule add https://github.com/KnpLabs/snappy.git vendor/snappy
-    
-    # Install bundle
-    git submodule add https://github.com/KnpLabs/KnpSnappyBundle.git vendor/bundles/Knp/Bundle/SnappyBundle
-    
-Or just clone the repos:
-    
-    # Install snappy library
-    git clone https://github.com/KnpLabs/snappy.git vendor/snappy
-
-    # Install bundle
-    git clone https://github.com/KnpLabs/KnpSnappyBundle.git vendor/bundles/Knp/Bundle/SnappyBundle
-
-
-Then, you should register both source directories in your autoloader unless you are using [composer](http://packagist.org):
-
-    $loader->registerNamespaces(array(
-        ...
-        'Knp'                        => __DIR__.'/../vendor/bundles',
-        'Knp\\Snappy'                => __DIR__.'/../vendor/snappy/src',
-
-Finally, you can enable it in your kernel:
+Then enable it in your kernel:
 
     // app/AppKernel.php
     public function registerBundles()
