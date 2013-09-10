@@ -116,6 +116,34 @@ The bundle registers two services:
         )
     );
 
+Install wkhtmltopdf as a composer dependency
+--------------------------------------------
+
+Add the following to your `composer.json` to install the wkhtmltopdf binary via composer:
+
+```json
+{
+    "require": {
+        "h4cc/wkhtmltopdf-i386": "0.11.0-RC1",
+        "h4cc/wkhtmltoimage-i386": "0.11.0-RC1"
+    }
+}
+```
+
+or this if you are in 64bit based system:
+
+```json
+{
+    "require": {
+        "h4cc/wkhtmltopdf-amd64": "0.11.0-RC1",
+        "h4cc/wkhtmltoimage-amd64": "0.11.0-RC1"
+    }
+}
+```
+
+The binaries will then be available in the `vendor/bin/` folder.
+
+
 Credits
 -------
 
