@@ -15,7 +15,7 @@ With [composer](http://packagist.org), add:
 
 ```json
 {
-    require: {
+    "require": {
         "knplabs/knp-snappy-bundle": "dev-master"
     }
 }
