@@ -30,6 +30,9 @@
             "Knp\\Bundle\\SnappyBundle": ""
         }
     },
+    "branch-alias": {
+        "dev-master": "1.0-dev"
+    },
 
     "target-dir": "Knp/Bundle/SnappyBundle"
 }
