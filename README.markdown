@@ -70,6 +70,12 @@ $container->get('knp_snappy.image')->generate('http://www.google.fr', '/path/to/
 $container->get('knp_snappy.pdf')->generate('http://www.google.fr', '/path/to/the/file.pdf');
 ```
 
+### Generate a pdf document from multiple URLs
+
+```php
+$container->get('knp_snappy.pdf')->generate(array('http://www.google.fr', 'http://www.knplabs.com', 'http://www.google.com'), '/path/to/the/file.pdf');
+```
+
 ### Generate a pdf document from a twig view
 
 ```php
