@@ -41,7 +41,12 @@ class LoggableGenerator implements GeneratorInterface
      */
     public function generate($input, $output, array $options = array(), $overwrite = false)
     {
-        $this->logDebug(sprintf('Generate from file (%s) to file (%s).', $input, $output));
+        if (is_array($input)) {
+            $debug_input = implode(", ", $input);
+        } else {
+            $debug_input = $input;
+        }
+        $this->logDebug(sprintf('Generate from file (%s) to file (%s).', $debug_input, $output));
 
         $this->generator->generate($input, $output, $options, $overwrite);
     }
@@ -61,7 +66,12 @@ class LoggableGenerator implements GeneratorInterface
      */
     public function getOutput($input, array $options = array())
     {
-        $this->logDebug(sprintf('Output from file (%s).', $input));
+        if (is_array($input)) {
+            $debug_input = implode(", ", $input);
+        } else {
+            $debug_input = $input;
+        }
+        $this->logDebug(sprintf('Output from file (%s).', $debug_input));
 
         return $this->generator->getOutput($input, $options);
     }
