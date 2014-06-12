@@ -4,7 +4,7 @@ namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
 
 use Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator;
 
-class LoggableGeneratorTests extends \PHPUnit_Framework_TestCase
+class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
 {
     public function testGenerate()
     {
@@ -100,5 +100,46 @@ class LoggableGeneratorTests extends \PHPUnit_Framework_TestCase
 
         $generator = new LoggableGenerator($internal, $logger);
         $generator->getOutputFromHtml('<html>foo</html>', array('foo' => 'bar'), true);
+    }
+
+    public function testSetOption()
+    {
+        $internal = $this->getMock('Knp\Snappy\Image');
+        $internal
+            ->expects($this->at(0))
+            ->method('setOption')
+            ->with(
+                $this->equalTo('foo'),
+                $this->equalTo('bar')
+            )
+        ;
+        $internal
+            ->expects($this->at(1))
+            ->method('setOption')
+            ->with(
+                $this->equalTo('foo'),
+                $this->equalTo(array('bar'=>'baz'))
+            )
+        ;
+
+        $logger = $this->getMock('Symfony\Component\HttpKernel\Log\LoggerInterface');
+        $logger
+            ->expects($this->at(0))
+            ->method('debug')
+            ->with($this->equalTo('Set option foo = \'bar\'.'))
+        ;
+        $logger
+            ->expects($this->at(1))
+            ->method('debug')
+            ->with($this->equalTo(
+'Set option foo = array (
+  \'bar\' => \'baz\',
+).'
+            ))
+        ;
+
+        $generator = new LoggableGenerator($internal, $logger);
+        $generator->setOption('foo', 'bar');
+        $generator->setOption('foo', array('bar'=>'baz'));
     }
 }
