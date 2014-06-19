@@ -81,11 +81,7 @@ class LoggableGenerator implements GeneratorInterface
      */
     public function getOutputFromHtml($html, array $options = array())
     {
-        if (is_array($html)) {
-            $debugHtml = implode(", ", $html);
-        } else {
-            $debugHtml = $html;
-        }
+        $debugHtml = is_array($html) ? implode(', ', $html) : $html;
 
         $this->logDebug(sprintf('Output from HTML (%s).', substr($debugHtml, 0, 100)));
 
