@@ -17,8 +17,8 @@ class LoggableGenerator implements GeneratorInterface
     /**
      * Constructor
      *
-     * @param  GeneratorInterface $generator
-     * @param  LoggerInterface    $logger
+     * @param GeneratorInterface $generator
+     * @param LoggerInterface    $logger
      */
     public function __construct(GeneratorInterface $generator, LoggerInterface $logger = null)
     {
@@ -81,7 +81,9 @@ class LoggableGenerator implements GeneratorInterface
      */
     public function getOutputFromHtml($html, array $options = array())
     {
-        $this->logDebug(sprintf('Output from HTML (%s).', substr($html, 0, 100)));
+        $debugHtml = is_array($html) ? implode(', ', $html) : $html;
+
+        $this->logDebug(sprintf('Output from HTML (%s).', substr($debugHtml, 0, 100)));
 
         return $this->generator->getOutputFromHtml($html, $options);
     }
@@ -95,12 +97,12 @@ class LoggableGenerator implements GeneratorInterface
 
         return $this->generator->setOption($name, $value);
     }
-    
+
     /**
      * Logs the given debug message if the logger is configured or do nothing
      * otherwise
      *
-     * @param  string $message
+     * @param string $message
      */
     private function logDebug($message)
     {
