@@ -66,6 +66,20 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('/custom/binary/for/wkhtmltoimage', $image->getInternalGenerator()->getBinary());
     }
 
+    public function testChangeTemporaryFolder()
+    {
+        $this->kernel->setConfigurationFilename(__DIR__.'/fixtures/config/change_temporary_folder.yml');
+        $this->kernel->boot();
+
+        $container = $this->kernel->getContainer();
+
+        $pdf = $container->get('knp_snappy.pdf');
+        $this->assertEquals('/path/to/the/tmp', $pdf->getInternalGenerator()->getTemporaryFolder());
+
+        $image = $container->get('knp_snappy.image');
+        $this->assertEquals('/path/to/the/tmp', $image->getInternalGenerator()->getTemporaryFolder());
+    }
+
     public function testDisablePdf()
     {
         $this->kernel->setConfigurationFilename(__DIR__.'/fixtures/config/disable_pdf.yml');

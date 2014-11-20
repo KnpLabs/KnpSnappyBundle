@@ -1,0 +1,5 @@
+imports:
+    - { resource: 'base.yml' }
+
+knp_snappy:
+    temporary_folder: /path/to/the/tmp
