@@ -29,6 +29,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('knp_snappy');
         $rootNode
             ->children()
+                ->scalarNode('temporary_folder')->end()
                 ->arrayNode('pdf')
                     ->addDefaultsIfNotSet()
                     ->children()
