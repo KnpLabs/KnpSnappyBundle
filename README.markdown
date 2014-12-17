@@ -50,6 +50,21 @@ knp_snappy:
         options:    []
 ```
 
+**for windows users**
+
+```yml
+# app/config/config.yml
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:    []
+    image:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:    []
+```
+
 Usage
 -----
 
