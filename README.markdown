@@ -162,5 +162,5 @@ SnappyBundle and [Snappy][snappy] are based on the awesome [wkhtmltopdf][wkhtmlt
 SnappyBundle has been developed by [KnpLabs][KnpLabs].
 
 [snappy]: https://github.com/KnpLabs/snappy
-[wkhtmltopdf]: http://code.google.com/p/wkhtmltopdf/
+[wkhtmltopdf]: http://wkhtmltopdf.org
 [KnpLabs]: http://www.knplabs.com
