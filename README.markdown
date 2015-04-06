@@ -35,7 +35,7 @@ public function registerBundles()
 Configuration
 -------------
 
-If you need to change the binaries, change the instance options or even disable one or both services, you can do it through the configuration.
+If you need to change the binaries, change the instance options or even disable one or both services, you can do it through the configuration. You can check for the location of wkhtmltopdf with the command 'locate wkhtmltopdf'. On debian systems it's installed in /usr/bin/wkhtmltopdf. You can test if it's working correctly with a command like 'wkhtmltopdf http://www.google.com test.pdf'. If it fails with the error: "wkhtmltopdf: cannot connect to X server ", which can happen on a headless server, follow the steps outlined here: http://stackoverflow.com/questions/9604625/wkhtmltopdf-cannot-connect-to-x-server
 
 ```yaml
 # app/config/config.yml
