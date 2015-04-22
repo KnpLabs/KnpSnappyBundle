@@ -56,7 +56,9 @@ class LoggableGenerator implements GeneratorInterface
      */
     public function generateFromHtml($html, $output, array $options = array(), $overwrite = false)
     {
-        $this->logDebug(sprintf('Generate from HTML (%s) to file (%s).', substr($html, 0, 100), $output));
+        $debugHtml = is_array($html) ? implode(', ', $html) : $html;
+
+        $this->logDebug(sprintf('Generate from HTML (%s) to file (%s).', substr($debugHtml, 0, 100), $output));
 
         $this->generator->generateFromHtml($html, $output, $options, $overwrite);
     }
