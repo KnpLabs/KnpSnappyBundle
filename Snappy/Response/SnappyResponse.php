@@ -8,7 +8,7 @@ abstract class SnappyResponse extends Base
 {
     public function __construct($content, $fileName, $contentType, $contentDisposition = 'attachment', $status = 200, $headers = array())
     {
-        $contentDispositionDirectives = ['inline', 'attachment'];
+        $contentDispositionDirectives = array('inline', 'attachment');
         if (!in_array($contentDisposition, $contentDispositionDirectives)) {
             throw new \InvalidArgumentException(sprintf('Expected one of the following directives: "%s", "%s" given.', implode('", "', $contentDispositionDirectives), $contentDisposition));
         }
