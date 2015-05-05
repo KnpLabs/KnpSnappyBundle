@@ -10,7 +10,7 @@ abstract class SnappyResponse extends Base
     {
         $contentDispositionDirectives = ['inline', 'attachment'];
         if (!in_array($contentDisposition, $contentDispositionDirectives)) {
-            throw new \InvalidArgumentException(sprintf('Expected one of directives "%s", %s given.', implode(', ', $contentDispositionDirectives), $contentDisposition));
+            throw new \InvalidArgumentException(sprintf('Expected one of the following directives: "%s", "%s" given.', implode('", "', $contentDispositionDirectives), $contentDisposition));
         }
 
         parent::__construct($content, $status, $headers);
