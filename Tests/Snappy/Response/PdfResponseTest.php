@@ -2,13 +2,13 @@
 
 namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
 
-use Knp\Bundle\SnappyBundle\Snappy\Response\Response as SnappyResponse;
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 
-class ResponseTest extends \PHPUnit_Framework_TestCase
+class PdfResponseTest extends \PHPUnit_Framework_TestCase
 {
     public function testDefaultParameters()
     {
-        $response = new SnappyResponse('some_binary_output');
+        $response = new PdfResponse('some_binary_output');
 
         $this->assertSame(200, $response->getStatusCode());
         $this->assertSame('some_binary_output', $response->getContent());
@@ -18,7 +18,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 
     public function testSetDifferentMimeType()
     {
-        $response = new SnappyResponse('some_binary_output', 200, 'test.pdf', 'application/octet-stream');
+        $response = new PdfResponse('some_binary_output', 'test.pdf', 'application/octet-stream');
 
         $this->assertSame('application/octet-stream', $response->headers->get('Content-Type'));
     }
@@ -26,7 +26,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
     public function testSetDifferentFileName()
     {
         $fileName = 'test.pdf';
-        $response = new SnappyResponse('some_binary_output', 200, $fileName);
+        $response = new PdfResponse('some_binary_output', $fileName);
         $fileNameFromDispositionRegex = '/.*filename="([^"]+)"/';
 
         $this->assertSame(1, preg_match($fileNameFromDispositionRegex, $response->headers->get('Content-Disposition'), $matches), 1);

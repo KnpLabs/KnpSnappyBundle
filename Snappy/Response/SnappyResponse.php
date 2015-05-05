@@ -4,9 +4,9 @@ namespace Knp\Bundle\SnappyBundle\Snappy\Response;
 
 use Symfony\Component\HttpFoundation\Response as Base;
 
-class Response extends Base
+abstract class SnappyResponse extends Base
 {
-    public function __construct($content, $status = 200, $fileName = 'output.pdf', $contentType = 'application/pdf', $contentDisposition = 'attachment', $headers = array())
+    public function __construct($content, $fileName, $contentType, $contentDisposition = 'attachment', $status = 200, $headers = array())
     {
         $contentDispositionDirectives = ['inline', 'attachment'];
         if (!in_array($contentDisposition, $contentDispositionDirectives)) {
