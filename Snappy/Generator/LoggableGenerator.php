@@ -15,7 +15,7 @@ class LoggableGenerator implements GeneratorInterface
     private $logger;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param GeneratorInterface $generator
      * @param LoggerInterface    $logger
@@ -27,7 +27,7 @@ class LoggableGenerator implements GeneratorInterface
     }
 
     /**
-     * Returns the underlying generator instance
+     * Returns the underlying generator instance.
      *
      * @return GeneratorInterface
      */
@@ -37,12 +37,12 @@ class LoggableGenerator implements GeneratorInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
-    public function generate($input, $output, array $options = array(), $overwrite = false)
+    public function generate($input, $output, array $options = [], $overwrite = false)
     {
         if (is_array($input)) {
-            $debug_input = implode(", ", $input);
+            $debug_input = implode(', ', $input);
         } else {
             $debug_input = $input;
         }
@@ -52,9 +52,9 @@ class LoggableGenerator implements GeneratorInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
-    public function generateFromHtml($html, $output, array $options = array(), $overwrite = false)
+    public function generateFromHtml($html, $output, array $options = [], $overwrite = false)
     {
         $debugHtml = is_array($html) ? implode(', ', $html) : $html;
 
@@ -64,12 +64,12 @@ class LoggableGenerator implements GeneratorInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
-    public function getOutput($input, array $options = array())
+    public function getOutput($input, array $options = [])
     {
         if (is_array($input)) {
-            $debug_input = implode(", ", $input);
+            $debug_input = implode(', ', $input);
         } else {
             $debug_input = $input;
         }
@@ -79,9 +79,9 @@ class LoggableGenerator implements GeneratorInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
-    public function getOutputFromHtml($html, array $options = array())
+    public function getOutputFromHtml($html, array $options = [])
     {
         $debugHtml = is_array($html) ? implode(', ', $html) : $html;
 
@@ -91,7 +91,7 @@ class LoggableGenerator implements GeneratorInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function setOption($name, $value)
     {
@@ -102,7 +102,7 @@ class LoggableGenerator implements GeneratorInterface
 
     /**
      * Logs the given debug message if the logger is configured or do nothing
-     * otherwise
+     * otherwise.
      *
      * @param string $message
      */
