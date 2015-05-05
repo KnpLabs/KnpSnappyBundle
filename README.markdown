@@ -110,15 +110,20 @@ $this->get('knp_snappy.pdf')->generateFromHtml(
 ```php
 use Knp\Bundle\SnappyBundle\Snappy\Response\JpegResponse;
 
-$html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
-    'some'  => $vars
-));
+class SomeController
+{
+    public function imageAction()
+    {
+        $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
+            'some'  => $vars
+        ));
 
-
-return new JpegResponse(
-    $this->get('knp_snappy.image')->getOutputFromHtml($html),
-    "image.jpg"
-);
+        return new JpegResponse(
+            $this->get('knp_snappy.image')->getOutputFromHtml($html),
+            "image.jpg"
+        );
+    }
+}
 ```
 
 ### Render a pdf document as response from a controller
@@ -126,14 +131,20 @@ return new JpegResponse(
 ```php
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 
-$html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
-    'some'  => $vars
-));
+class SomeController
+{
+    public function pdfAction()
+    {
+        $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
+            'some'  => $vars
+        ));
 
-return new PdfResponse(
-    $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-    "file.pdf"
-);
+        return new PdfResponse(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            "file.pdf"
+        );
+    }
+}
 ```
 
 ### Render a pdf document with a relative url inside like css files
@@ -141,12 +152,18 @@ return new PdfResponse(
 ```php
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 
-$pageUrl = $this->generateUrl('homepage', array(), true); // use absolute path!
+class SomeController
+{
+    public function pdfAction()
+    {
+        $pageUrl = $this->generateUrl('homepage', array(), true); // use absolute path!
 
-return new PdfResponse(
-    $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-    "file.pdf"
-);
+        return new PdfResponse(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            "file.pdf"
+        );
+    }
+}
 ```
 
 Credits
