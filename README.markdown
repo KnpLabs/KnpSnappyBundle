@@ -6,6 +6,8 @@ It allows you to generate either pdf or image files from your html documents, us
 
 The KnpSnappyBundle provides a simple integration for your Symfony project.
 
+[![Build Status](https://secure.travis-ci.org/KnpLabs/KnpSnappyBundle.png)](http://travis-ci.org/KnpLabs/KnpSnappyBundle)
+
 [![knpbundles.com](http://knpbundles.com/KnpLabs/KnpSnappyBundle/badge-short)](http://knpbundles.com/KnpLabs/KnpSnappyBundle)
 
 Installation
