@@ -2,7 +2,7 @@
 
 namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
 
-use Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator;
+use Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator;
 
 class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Knp\Bundle\SnappyBundle\Snappy;
+namespace Knp\Bundle\SnappyBundle\Snappy\Generator;
 
 use Knp\Snappy\GeneratorInterface;
 use Psr\Log\LoggerInterface;
