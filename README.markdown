@@ -120,7 +120,7 @@ class SomeController
 
         return new JpegResponse(
             $this->get('knp_snappy.image')->getOutputFromHtml($html),
-            "image.jpg"
+            'image.jpg'
         );
     }
 }
@@ -141,7 +141,7 @@ class SomeController
 
         return new PdfResponse(
             $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-            "file.pdf"
+            'file.pdf'
         );
     }
 }
@@ -160,7 +160,7 @@ class SomeController
 
         return new PdfResponse(
             $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-            "file.pdf"
+            'file.pdf'
         );
     }
 }
