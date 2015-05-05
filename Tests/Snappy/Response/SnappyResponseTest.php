@@ -2,7 +2,6 @@
 
 namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
 
-use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 use Knp\Bundle\SnappyBundle\Snappy\Response\SnappyResponse;
 
 class SnappyResponseTest extends \PHPUnit_Framework_TestCase
