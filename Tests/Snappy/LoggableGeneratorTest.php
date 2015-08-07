@@ -56,6 +56,31 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
         $generator->generateFromHtml('<html>foo</html>', 'the_output_file', array('foo' => 'bar'), true);
     }
 
+    public function testGenerateFromHtmlWithHtmlArray()
+    {
+        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal
+            ->expects($this->once())
+            ->method('generateFromHtml')
+            ->with(
+                $this->equalTo(array('<html>foo</html>', '<html>bar</html>')),
+                $this->equalTo('the_output_file'),
+                $this->equalTo(array('foo' => 'bar')),
+                $this->equalTo(true)
+            )
+        ;
+
+        $logger = $this->getMock('Symfony\Component\HttpKernel\Log\LoggerInterface');
+        $logger
+            ->expects($this->once())
+            ->method('debug')
+            ->with($this->equalTo('Generate from HTML (<html>foo</html>, <html>bar</html>) to file (the_output_file).'))
+        ;
+
+        $generator = new LoggableGenerator($internal, $logger);
+        $generator->generateFromHtml(array('<html>foo</html>', '<html>bar</html>'), 'the_output_file', array('foo' => 'bar'), true);
+    }
+
     public function testOutput()
     {
         $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
