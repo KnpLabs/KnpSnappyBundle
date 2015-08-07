@@ -6,7 +6,7 @@
 
     <parameters>
         <parameter key="knp_snappy.pdf.internal_generator.class">Knp\Snappy\Pdf</parameter>
-        <parameter key="knp_snappy.pdf.class">Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator</parameter>
+        <parameter key="knp_snappy.pdf.class">Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator</parameter>
     </parameters>
 
     <services>

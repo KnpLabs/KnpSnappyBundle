@@ -103,51 +103,62 @@ $this->get('knp_snappy.pdf')->generateFromHtml(
 ### Render an image as response from a controller
 
 ```php
-$html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
-    'some'  => $vars
-));
+use Knp\Bundle\SnappyBundle\Snappy\Response\JpegResponse;
 
+class SomeController
+{
+    public function imageAction()
+    {
+        $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
+            'some'  => $vars
+        ));
 
-return new Response(
-    $this->get('knp_snappy.image')->getOutputFromHtml($html),
-    200,
-    array(
-        'Content-Type'          => 'image/jpg',
-        'Content-Disposition'   => 'filename="image.jpg"'
-    )
-);
+        return new JpegResponse(
+            $this->get('knp_snappy.image')->getOutputFromHtml($html),
+            'image.jpg'
+        );
+    }
+}
 ```
 
 ### Render a pdf document as response from a controller
 
 ```php
-$html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
-    'some'  => $vars
-));
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 
-return new Response(
-    $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-    200,
-    array(
-        'Content-Type'          => 'application/pdf',
-        'Content-Disposition'   => 'attachment; filename="file.pdf"'
-    )
-);
+class SomeController
+{
+    public function pdfAction()
+    {
+        $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
+            'some'  => $vars
+        ));
+
+        return new PdfResponse(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            'file.pdf'
+        );
+    }
+}
 ```
 
 ### Render a pdf document with a relative url inside like css files
 
 ```php
-$pageUrl = $this->generateUrl('homepage', array(), true); // use absolute path!
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 
-return new Response(
-    $this->get('knp_snappy.pdf')->getOutput($pageUrl),
-    200,
-    array(
-        'Content-Type'          => 'application/pdf',
-        'Content-Disposition'   => 'attachment; filename="file.pdf"'
-    )
-);
+class SomeController
+{
+    public function pdfAction()
+    {
+        $pageUrl = $this->generateUrl('homepage', array(), true); // use absolute path!
+
+        return new PdfResponse(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            'file.pdf'
+        );
+    }
+}
 ```
 
 Credits
