@@ -30,6 +30,10 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('temporary_folder')->end()
+                ->integerNode('process_timeout')
+                    ->min(1)
+                    ->info('Generator process timeout. Be aware that only works with Symfony process component.')
+                ->end()
                 ->arrayNode('pdf')
                     ->addDefaultsIfNotSet()
                     ->children()
