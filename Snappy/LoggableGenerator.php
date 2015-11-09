@@ -3,7 +3,7 @@
 namespace Knp\Bundle\SnappyBundle\Snappy;
 
 use Knp\Snappy\GeneratorInterface;
-use Symfony\Component\HttpKernel\Log\LoggerInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Wraps a GeneratorInterface instance to log the media generations using the
