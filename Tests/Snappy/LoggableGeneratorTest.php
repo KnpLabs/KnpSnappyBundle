@@ -20,7 +20,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $logger = $this->getMock('Symfony\Component\HttpKernel\Log\LoggerInterface');
+        $logger = $this->getMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -45,7 +45,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $logger = $this->getMock('Symfony\Component\HttpKernel\Log\LoggerInterface');
+        $logger = $this->getMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -70,7 +70,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $logger = $this->getMock('Symfony\Component\HttpKernel\Log\LoggerInterface');
+        $logger = $this->getMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -93,7 +93,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $logger = $this->getMock('Symfony\Component\HttpKernel\Log\LoggerInterface');
+        $logger = $this->getMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -116,7 +116,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $logger = $this->getMock('Symfony\Component\HttpKernel\Log\LoggerInterface');
+        $logger = $this->getMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -139,7 +139,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $logger = $this->getMock('Symfony\Component\HttpKernel\Log\LoggerInterface');
+        $logger = $this->getMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -170,7 +170,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $logger = $this->getMock('Symfony\Component\HttpKernel\Log\LoggerInterface');
+        $logger = $this->getMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->at(0))
             ->method('debug')
