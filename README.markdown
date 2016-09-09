@@ -68,13 +68,13 @@ The bundle registers two services:
  - the `knp_snappy.image` service allows you to generate images;
  - the `knp_snappy.pdf` service allows you to generate pdf files.
 
-### Generate an image from an URL
+### Generate an image from a URL
 
 ```php
 $container->get('knp_snappy.image')->generate('http://www.google.fr', '/path/to/the/image.jpg');
 ```
 
-### Generate a pdf document from an URL
+### Generate a pdf document from a URL
 
 ```php
 $container->get('knp_snappy.pdf')->generate('http://www.google.fr', '/path/to/the/file.pdf');
