@@ -1,5 +1,5 @@
 {
-    "name":        "knplabs/knp-snappy-bundle",
+    "name":        "purposefull/knp-snappy-bundle",
     "type":        "symfony-bundle",
     "description": "Easily create PDF and images in Symfony2 by converting Twig/HTML templates.",
     "keywords":    ["snappy", "pdf", "knplabs", "knp", "bundle"],
@@ -19,9 +19,9 @@
 
     "require": {
         "php":                      ">=5.3.2",
-        "symfony/framework-bundle": "~2.3|~3.0",
-        "symfony/finder":           "~2.3|~3.0",
-        "symfony/validator":        "~2.3|~3.0",
+        "symfony/framework-bundle": "~2.3|~3.1",
+        "symfony/finder":           "~2.3|~3.1",
+        "symfony/validator":        "~2.3|~3.1",
         "knplabs/knp-snappy":       "~0.1"
     },
 
