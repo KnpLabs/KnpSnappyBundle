@@ -149,6 +149,56 @@ return new Response(
     )
 );
 ```
+Silex ~2.0@dev configuration
+----------------------------
+### ServiceProvider file
+
+```
+namespace Acme\Snappy;
+
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
+use Silex\Application;
+use Knp\Snappy\Pdf;
+use Knp\Snappy\Image;
+/**
+ * Snappy library Provider.
+ *
+ */
+class SnappyServiceProvider implements ServiceProviderInterface
+{
+    /**
+     * @param Application $app
+     */
+    public function register(Container $app)
+    {
+        $app['snappy.image'] = function ($app) {
+            return new Image(
+                isset($app['snappy.image.binary']) ? $app['snappy.image.binary'] : '/usr/local/bin/wkhtmltoimage',
+                isset($app['snappy.image.options']) ? $app['snappy.image.options'] : array()
+            );
+        };
+        $app['snappy.pdf'] = function ($app) {
+            return new Pdf(
+                isset($app['snappy.pdf.binary']) ? $app['snappy.pdf.binary'] : '/usr/local/bin/wkhtmltopdf',
+                isset($app['snappy.pdf.options']) ? $app['snappy.pdf.options'] : array()
+            );
+        };
+    }
+    /**
+     * @param Application $app
+     */
+    public function boot(Application $app)
+    {
+    }
+}
+```
+
+### app.php registration
+
+```
+$app->register(new SnappyServiceProvider());
+```
 
 Credits
 -------
