@@ -34,6 +34,9 @@ public function registerBundles()
         new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         //...
 ```
+
+Make sure you have wkhtmltopdf installed on your system. If you don't have it you can install it with a command like 'sudo apt-get install wkhtmltopdf'
+
 Configuration
 -------------
 
