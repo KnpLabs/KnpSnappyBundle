@@ -128,7 +128,29 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                         'env'       => array(),
                     )
                 )
-            )
+            ),
+            array(
+                array(
+                    array(
+                        'process_timeout' => 120,
+                    ),
+                ),
+                array(
+                    'process_timeout' => 120,
+                    'pdf'   => array(
+                        'enabled'   => true,
+                        'binary'    => 'wkhtmltopdf',
+                        'options'   => array(),
+                        'env'       => array(),
+                    ),
+                    'image' => array(
+                        'enabled'   => true,
+                        'binary'    => 'wkhtmltoimage',
+                        'options'   => array(),
+                        'env'       => array(),
+                    ),
+                )
+            ),
         );
     }
 }
