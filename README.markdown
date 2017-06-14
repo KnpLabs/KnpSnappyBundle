@@ -60,6 +60,14 @@ knp_snappy:
     temporary_folder: %kernel.cache_dir%/snappy
 ```
 
+You can also configure the timeout used by the generators with `process_timeout`:
+
+```yaml
+# app/config/config.yml
+knp_snappy:
+    process_timeout: 20 # In seconds
+```
+
 Usage
 -----
 
