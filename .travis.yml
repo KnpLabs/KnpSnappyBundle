@@ -28,4 +28,7 @@ before_install: if [[ "$SYMFONY_VERSION" != "" ]]; then composer require --no-up
 
 install: composer update --prefer-dist
 
-script: phpunit
+script:
+  - composer show symfony/security-csrf
+  - composer why symfony/security-csrf
+  - vendor/bin/phpunit
