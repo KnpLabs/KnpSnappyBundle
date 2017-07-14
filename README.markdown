@@ -13,15 +13,9 @@ The KnpSnappyBundle provides a simple integration for your Symfony project.
 Installation
 ------------
 
-With [composer](http://packagist.org), add:
+With [composer](http://packagist.org), require:
 
-```json
-{
-    "require": {
-        "knplabs/knp-snappy-bundle": "~1.4"
-    }
-}
-```
+`composer require knplabs/knp-snappy-bundle`
 
 Then enable it in your kernel:
 
