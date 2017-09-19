@@ -10,6 +10,11 @@ The KnpSnappyBundle provides a simple integration for your Symfony project.
 
 [![knpbundles.com](http://knpbundles.com/KnpLabs/KnpSnappyBundle/badge-short)](http://knpbundles.com/KnpLabs/KnpSnappyBundle)
 
+Current maintainer(s)
+---------------------
+
+* [NiR-](https://github.com/NiR-)
+
 Installation
 ------------
 
