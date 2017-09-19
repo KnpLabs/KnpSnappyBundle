@@ -2,16 +2,16 @@
 
 namespace Knp\Bundle\SnappyBundle\DependencyInjection;
 
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class KnpSnappyExtension extends Extension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -28,11 +28,11 @@ class KnpSnappyExtension extends Extension
             $container->setParameter('knp_snappy.pdf.env', $config['pdf']['env']);
             if (!empty($config['temporary_folder'])) {
                 $container->findDefinition('knp_snappy.pdf.internal_generator')
-                    ->addMethodCall('setTemporaryFolder', array($config['temporary_folder']));
+                    ->addMethodCall('setTemporaryFolder', [$config['temporary_folder']]);
             }
             if (!empty($config['process_timeout'])) {
                 $container->findDefinition('knp_snappy.pdf.internal_generator')
-                    ->addMethodCall('setTimeout', array($config['process_timeout']));
+                    ->addMethodCall('setTimeout', [$config['process_timeout']]);
             }
         }
 
@@ -43,11 +43,11 @@ class KnpSnappyExtension extends Extension
             $container->setParameter('knp_snappy.image.env', $config['image']['env']);
             if (!empty($config['temporary_folder'])) {
                 $container->findDefinition('knp_snappy.image.internal_generator')
-                    ->addMethodCall('setTemporaryFolder', array($config['temporary_folder']));
+                    ->addMethodCall('setTemporaryFolder', [$config['temporary_folder']]);
             }
             if (!empty($config['process_timeout'])) {
                 $container->findDefinition('knp_snappy.image.internal_generator')
-                    ->addMethodCall('setTimeout', array($config['process_timeout']));
+                    ->addMethodCall('setTimeout', [$config['process_timeout']]);
             }
         }
     }

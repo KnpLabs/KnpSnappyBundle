@@ -2,17 +2,17 @@
 
 namespace Knp\Bundle\SnappyBundle\Tests;
 
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\HttpKernel\Kernel;
 
 class TestKernel extends Kernel
 {
     private $configurationFilename;
 
     /**
-     * Defines the configuration filename
+     * Defines the configuration filename.
      *
-     * @param  string $filename
+     * @param string $filename
      */
     public function setConfigurationFilename($filename)
     {
@@ -20,18 +20,18 @@ class TestKernel extends Kernel
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function registerBundles()
     {
-        return array(
+        return [
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new \Knp\Bundle\SnappyBundle\KnpSnappyBundle()
-        );
+            new \Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+        ];
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
