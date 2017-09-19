@@ -2,6 +2,7 @@
 
 namespace Knp\Bundle\SnappyBundle\Snappy;
 
+use Knp\Snappy\AbstractGenerator;
 use Knp\Snappy\GeneratorInterface;
 use Psr\Log\LoggerInterface;
 
@@ -17,10 +18,10 @@ class LoggableGenerator implements GeneratorInterface
     /**
      * Constructor
      *
-     * @param GeneratorInterface $generator
-     * @param LoggerInterface    $logger
+     * @param AbstractGenerator $generator
+     * @param LoggerInterface   $logger
      */
-    public function __construct(GeneratorInterface $generator, LoggerInterface $logger = null)
+    public function __construct(AbstractGenerator $generator, LoggerInterface $logger = null)
     {
         $this->generator = $generator;
         $this->logger = $logger;

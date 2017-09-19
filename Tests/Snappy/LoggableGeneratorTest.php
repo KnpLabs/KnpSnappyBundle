@@ -6,9 +6,40 @@ use Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator;
 
 class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
 {
+    private $generator;
+
+    protected function setUp()
+    {
+        $this->generator = $this->getMockForAbstractClass(
+            'Knp\Snappy\AbstractGenerator',
+            array(
+                'the_binary',
+                array()
+            ),
+            '',
+            true,
+            true,
+            true,
+            array(
+                'generate',
+                'getOutput',
+                'setOption',
+                'getOutputFromHtml',
+                'generateFromHtml',
+                'configure',
+                'prepareOutput',
+                'getCommand',
+                'executeCommand',
+                'checkOutput',
+                'checkProcessStatus',
+            )
+        );
+    }
+
     public function testGenerate()
     {
-        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal = $this->generator;
+
         $internal
             ->expects($this->once())
             ->method('generate')
@@ -33,7 +64,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function testGenerateFromHtml()
     {
-        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal = $this->generator;
         $internal
             ->expects($this->once())
             ->method('generateFromHtml')
@@ -83,7 +114,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function testOutput()
     {
-        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal = $this->generator;
         $internal
             ->expects($this->once())
             ->method('getOutput')
@@ -106,7 +137,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function testOutputFromHtml()
     {
-        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal = $this->generator;
         $internal
             ->expects($this->once())
             ->method('getOutputFromHtml')
@@ -129,7 +160,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function testOutputFromHtmlWithHtmlArray()
     {
-        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal = $this->generator;
         $internal
             ->expects($this->once())
             ->method('getOutputFromHtml')
@@ -152,7 +183,7 @@ class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function testSetOption()
     {
-        $internal = $this->getMock('Knp\Snappy\Image');
+        $internal = $this->generator;
         $internal
             ->expects($this->at(0))
             ->method('setOption')
