@@ -1,0 +1,4 @@
+preset: recommended
+
+disabled:
+  - no_multiline_whitespace_before_semicolons # Allow to put semicolons on a line after the last parenthesis
