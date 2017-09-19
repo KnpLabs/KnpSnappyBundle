@@ -33,7 +33,7 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
         $pdf = $container->get('knp_snappy.pdf');
 
-        $this->assertInstanceof('Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator', $pdf);
+        $this->assertInstanceof('Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator', $pdf);
         $this->assertInstanceof('Knp\Snappy\Pdf', $pdf->getInternalGenerator());
         $this->assertEquals('wkhtmltopdf', $pdf->getInternalGenerator()->getBinary());
 
@@ -41,7 +41,7 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
         $image = $container->get('knp_snappy.image');
 
-        $this->assertInstanceof('Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator', $image);
+        $this->assertInstanceof('Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator', $image);
         $this->assertInstanceof('Knp\Snappy\Image', $image->getInternalGenerator());
         $this->assertEquals('wkhtmltoimage', $image->getInternalGenerator()->getBinary());
     }

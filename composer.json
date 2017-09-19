@@ -23,6 +23,10 @@
         "knplabs/knp-snappy":       "~0.1"
     },
 
+    "require-dev": {
+        "phpunit/phpunit":          "~4.5"
+    },
+
     "autoload": {
         "psr-4": {
             "Knp\\Bundle\\SnappyBundle\\": ""

@@ -6,7 +6,7 @@
 
     <parameters>
         <parameter key="knp_snappy.image.internal_generator.class">Knp\Snappy\Image</parameter>
-        <parameter key="knp_snappy.image.class">Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator</parameter>
+        <parameter key="knp_snappy.image.class">Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator</parameter>
     </parameters>
 
     <services>
