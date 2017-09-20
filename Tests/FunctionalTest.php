@@ -24,7 +24,7 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
     public function testServicesAreBothAvailableOutOfTheBox()
     {
-        $this->kernel->setConfigurationFilename(__DIR__.'/fixtures/config/out_of_the_box.yml');
+        $this->kernel->setConfigurationFilename(__DIR__ . '/fixtures/config/out_of_the_box.yml');
         $this->kernel->boot();
 
         $container = $this->kernel->getContainer();
@@ -48,7 +48,7 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
     public function testChangeBinaries()
     {
-        $this->kernel->setConfigurationFilename(__DIR__.'/fixtures/config/change_binaries.yml');
+        $this->kernel->setConfigurationFilename(__DIR__ . '/fixtures/config/change_binaries.yml');
         $this->kernel->boot();
 
         $container = $this->kernel->getContainer();
@@ -68,7 +68,7 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
     public function testChangeTemporaryFolder()
     {
-        $this->kernel->setConfigurationFilename(__DIR__.'/fixtures/config/change_temporary_folder.yml');
+        $this->kernel->setConfigurationFilename(__DIR__ . '/fixtures/config/change_temporary_folder.yml');
         $this->kernel->boot();
 
         $container = $this->kernel->getContainer();
@@ -82,7 +82,7 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
     public function testDisablePdf()
     {
-        $this->kernel->setConfigurationFilename(__DIR__.'/fixtures/config/disable_pdf.yml');
+        $this->kernel->setConfigurationFilename(__DIR__ . '/fixtures/config/disable_pdf.yml');
         $this->kernel->boot();
 
         $container = $this->kernel->getContainer();
@@ -93,7 +93,7 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
     public function testDisableImage()
     {
-        $this->kernel->setConfigurationFilename(__DIR__.'/fixtures/config/disable_image.yml');
+        $this->kernel->setConfigurationFilename(__DIR__ . '/fixtures/config/disable_image.yml');
         $this->kernel->boot();
 
         $container = $this->kernel->getContainer();

@@ -20,137 +20,137 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
 
     public function dataForProcessedConfiguration()
     {
-        return array(
-            array(
-                array(),
-                array(
-                    'pdf'   => array(
+        return [
+            [
+                [],
+                [
+                    'pdf'   => [
                         'enabled'   => true,
                         'binary'    => 'wkhtmltopdf',
-                        'options'   => array(),
-                        'env'       => array(),
-                    ),
-                    'image' => array(
+                        'options'   => [],
+                        'env'       => [],
+                    ],
+                    'image' => [
                         'enabled'   => true,
                         'binary'    => 'wkhtmltoimage',
-                        'options'   => array(),
-                        'env'       => array(),
-                    )
-                )
-            ),
-            array(
-                array(
-                    array(
-                        'pdf'   => array(
+                        'options'   => [],
+                        'env'       => [],
+                    ],
+                ],
+            ],
+            [
+                [
+                    [
+                        'pdf'   => [
                             'binary'    => '/path/to/wkhtmltopdf',
-                            'options'   => array('foo' => 'bar'),
-                            'env'       => array(),
-                        ),
-                        'image' => array(
+                            'options'   => ['foo' => 'bar'],
+                            'env'       => [],
+                        ],
+                        'image' => [
                             'binary'    => '/path/to/wkhtmltoimage',
-                            'options'   => array('baz'  => 'bat', 'baf' => 'bag'),
-                            'env'       => array(),
-                        )
-                    ),
-                    array(
-                        'pdf'   => array(
-                            'options'   => array('bak' => 'bap'),
-                            'env'       => array(),
-                        )
-                    )
-                ),
-                array(
-                    'pdf'   => array(
+                            'options'   => ['baz'  => 'bat', 'baf' => 'bag'],
+                            'env'       => [],
+                        ],
+                    ],
+                    [
+                        'pdf'   => [
+                            'options'   => ['bak' => 'bap'],
+                            'env'       => [],
+                        ],
+                    ],
+                ],
+                [
+                    'pdf'   => [
                         'enabled'   => true,
                         'binary'    => '/path/to/wkhtmltopdf',
-                        'options'   => array('bak' => 'bap'),
-                        'env'       => array(),
-                    ),
-                    'image' => array(
+                        'options'   => ['bak' => 'bap'],
+                        'env'       => [],
+                    ],
+                    'image' => [
                         'enabled'   => true,
                         'binary'    => '/path/to/wkhtmltoimage',
-                        'options'   => array('baz' => 'bat', 'baf' => 'bag'),
-                        'env'       => array(),
-                    )
-                )
-            ),
-            array(
-                array(
-                    array('pdf' => array('enabled' => false))
-                ),
-                array(
-                    'pdf'   => array(
+                        'options'   => ['baz' => 'bat', 'baf' => 'bag'],
+                        'env'       => [],
+                    ],
+                ],
+            ],
+            [
+                [
+                    ['pdf' => ['enabled' => false]],
+                ],
+                [
+                    'pdf'   => [
                         'enabled'   => false,
                         'binary'    => 'wkhtmltopdf',
-                        'options'   => array(),
-                        'env'       => array(),
-                    ),
-                    'image' => array(
+                        'options'   => [],
+                        'env'       => [],
+                    ],
+                    'image' => [
                         'enabled'   => true,
                         'binary'    => 'wkhtmltoimage',
-                        'options'   => array(),
-                        'env'       => array(),
-                    )
-                )
-            ),
-            array(
-                array(
-                    array(
-                        'pdf'   => array(
-                            'options'   => array(
-                                'foo-bar'   => 'baz'
-                            ),
-                            'env'       => array(),
-                        ),
-                        'image' => array(
-                            'options'   => array(
-                                'bag-baf'   => 'bak'
-                            ),
-                            'env'       => array(),
-                        )
-                    )
-                ),
-                array(
-                    'pdf'   => array(
+                        'options'   => [],
+                        'env'       => [],
+                    ],
+                ],
+            ],
+            [
+                [
+                    [
+                        'pdf'   => [
+                            'options'   => [
+                                'foo-bar'   => 'baz',
+                            ],
+                            'env'       => [],
+                        ],
+                        'image' => [
+                            'options'   => [
+                                'bag-baf'   => 'bak',
+                            ],
+                            'env'       => [],
+                        ],
+                    ],
+                ],
+                [
+                    'pdf'   => [
                         'enabled'   => true,
                         'binary'    => 'wkhtmltopdf',
-                        'options'   => array(
-                            'foo-bar'   => 'baz'
-                        ),
-                        'env'       => array(),
-                    ),
-                    'image' => array(
+                        'options'   => [
+                            'foo-bar'   => 'baz',
+                        ],
+                        'env'       => [],
+                    ],
+                    'image' => [
                         'enabled'   => true,
                         'binary'    => 'wkhtmltoimage',
-                        'options'   => array(
-                            'bag-baf'   => 'bak'
-                        ),
-                        'env'       => array(),
-                    )
-                )
-            ),
-            array(
-                array(
-                    array(
+                        'options'   => [
+                            'bag-baf'   => 'bak',
+                        ],
+                        'env'       => [],
+                    ],
+                ],
+            ],
+            [
+                [
+                    [
                         'process_timeout' => 120,
-                    ),
-                ),
-                array(
+                    ],
+                ],
+                [
                     'process_timeout' => 120,
-                    'pdf'   => array(
+                    'pdf'             => [
                         'enabled'   => true,
                         'binary'    => 'wkhtmltopdf',
-                        'options'   => array(),
-                        'env'       => array(),
-                    ),
-                    'image' => array(
+                        'options'   => [],
+                        'env'       => [],
+                    ],
+                    'image' => [
                         'enabled'   => true,
                         'binary'    => 'wkhtmltoimage',
-                        'options'   => array(),
-                        'env'       => array(),
-                    ),
-                )
-            ),
-        );
+                        'options'   => [],
+                        'env'       => [],
+                    ],
+                ],
+            ],
+        ];
     }
 }
