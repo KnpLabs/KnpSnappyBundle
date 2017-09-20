@@ -23,10 +23,6 @@
         "knplabs/knp-snappy":       "~1.0"
     },
 
-    "require-dev": {
-        "phpunit/phpunit":          "~4.5"
-    },
-
     "autoload": {
         "psr-4": {
             "Knp\\Bundle\\SnappyBundle\\": ""
@@ -35,7 +31,7 @@
 
     "extra": {
         "branch-alias": {
-            "dev-master": "2.x-dev"
+            "dev-master": "1.x-dev"
         }
     },
     "require-dev": {
