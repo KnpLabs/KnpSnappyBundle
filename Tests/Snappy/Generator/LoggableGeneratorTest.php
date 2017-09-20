@@ -4,6 +4,9 @@ namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
 
 use Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator;
 
+/**
+ * @group legacy
+ */
 class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
 {
     public function testGenerate()

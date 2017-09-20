@@ -20,7 +20,7 @@
     "require": {
         "php":                      ">=5.6",
         "symfony/framework-bundle": "~2.7|~3.0",
-        "knplabs/knp-snappy":       "~0.1"
+        "knplabs/knp-snappy":       "~1.0"
     },
 
     "require-dev": {
