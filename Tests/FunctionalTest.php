@@ -6,7 +6,10 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class FunctionalTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var TestKernel */
     private $kernel;
+
+    /** @var Filesystem */
     private $filesystem;
 
     public function setUp()
@@ -22,7 +25,7 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
         $this->filesystem->remove($this->kernel->getCacheDir());
     }
 
-    public function testServicesAreBothAvailableOutOfTheBox()
+    public function testServiceIsAvailableOutOfTheBox()
     {
         $this->kernel->setConfigurationFilename(__DIR__ . '/fixtures/config/out_of_the_box.yml');
         $this->kernel->boot();
@@ -33,17 +36,15 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
         $pdf = $container->get('knp_snappy.pdf');
 
-        $this->assertInstanceof('Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator', $pdf);
-        $this->assertInstanceof('Knp\Snappy\Pdf', $pdf->getInternalGenerator());
-        $this->assertEquals('wkhtmltopdf', $pdf->getInternalGenerator()->getBinary());
+        $this->assertInstanceof('Knp\Snappy\Pdf', $pdf);
+        $this->assertEquals('wkhtmltopdf', $pdf->getBinary());
 
         $this->assertTrue($container->has('knp_snappy.image'), 'The image service is available.');
 
         $image = $container->get('knp_snappy.image');
 
-        $this->assertInstanceof('Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator', $image);
-        $this->assertInstanceof('Knp\Snappy\Image', $image->getInternalGenerator());
-        $this->assertEquals('wkhtmltoimage', $image->getInternalGenerator()->getBinary());
+        $this->assertInstanceof('Knp\Snappy\Image', $image);
+        $this->assertEquals('wkhtmltoimage', $image->getBinary());
     }
 
     public function testChangeBinaries()
@@ -57,13 +58,13 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
         $pdf = $container->get('knp_snappy.pdf');
 
-        $this->assertEquals('/custom/binary/for/wkhtmltopdf', $pdf->getInternalGenerator()->getBinary());
+        $this->assertEquals('/custom/binary/for/wkhtmltopdf', $pdf->getBinary());
 
         $this->assertTrue($container->has('knp_snappy.image'));
 
         $image = $container->get('knp_snappy.image');
 
-        $this->assertEquals('/custom/binary/for/wkhtmltoimage', $image->getInternalGenerator()->getBinary());
+        $this->assertEquals('/custom/binary/for/wkhtmltoimage', $image->getBinary());
     }
 
     public function testChangeTemporaryFolder()
@@ -74,10 +75,10 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
         $container = $this->kernel->getContainer();
 
         $pdf = $container->get('knp_snappy.pdf');
-        $this->assertEquals('/path/to/the/tmp', $pdf->getInternalGenerator()->getTemporaryFolder());
+        $this->assertEquals('/path/to/the/tmp', $pdf->getTemporaryFolder());
 
         $image = $container->get('knp_snappy.image');
-        $this->assertEquals('/path/to/the/tmp', $image->getInternalGenerator()->getTemporaryFolder());
+        $this->assertEquals('/path/to/the/tmp', $image->getTemporaryFolder());
     }
 
     public function testDisablePdf()

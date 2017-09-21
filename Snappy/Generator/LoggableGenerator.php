@@ -2,12 +2,16 @@
 
 namespace Knp\Bundle\SnappyBundle\Snappy\Generator;
 
+@trigger_error('Logging capability is now directly integrated in Snappy. You should call setLogger on your generator rather than using this decorator.', E_USER_DEPRECATED);
+
 use Knp\Snappy\GeneratorInterface;
 use Psr\Log\LoggerInterface;
 
 /**
  * Wraps a GeneratorInterface instance to log the media generations using the
  * configured logger.
+ *
+ * @deprecated Logging capability is now directly integrated in Snappy. You should use it rather than this Decorator.
  */
 class LoggableGenerator implements GeneratorInterface
 {
