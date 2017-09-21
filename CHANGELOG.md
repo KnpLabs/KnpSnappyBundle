@@ -1,3 +1,7 @@
+## v1.5.1
+
+* Re-put services as public (see #177)
+
 ## v1.5
 
 * Add `process_timeout` option (see #110)
