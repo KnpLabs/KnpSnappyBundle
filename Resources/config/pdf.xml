@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="knp_snappy.pdf" class="Knp\Snappy\Pdf" public="false">
+        <service id="knp_snappy.pdf" class="Knp\Snappy\Pdf">
             <argument>%knp_snappy.pdf.binary%</argument>
             <argument>%knp_snappy.pdf.options%</argument>
             <argument>%knp_snappy.pdf.env%</argument>
