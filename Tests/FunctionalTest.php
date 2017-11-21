@@ -2,9 +2,10 @@
 
 namespace Knp\Bundle\SnappyBundle\Tests;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Filesystem\Filesystem;
 
-class FunctionalTest extends \PHPUnit_Framework_TestCase
+class FunctionalTest extends TestCase
 {
     /** @var TestKernel */
     private $kernel;

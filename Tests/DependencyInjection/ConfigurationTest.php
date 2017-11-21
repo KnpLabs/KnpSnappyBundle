@@ -2,9 +2,10 @@
 
 namespace Knp\Bundle\SnappyBundle\DependencyInjection;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Processor;
 
-class ConfigurationTest extends \PHPUnit_Framework_TestCase
+class ConfigurationTest extends TestCase
 {
     /**
      * @dataProvider dataForProcessedConfiguration
