@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="knp_snappy.image" class="Knp\Snappy\Image">
+        <service id="knp_snappy.image" class="Knp\Snappy\Image" public="true">
             <argument>%knp_snappy.image.binary%</argument>
             <argument>%knp_snappy.image.options%</argument>
             <argument>%knp_snappy.image.env%</argument>
@@ -14,5 +14,6 @@
             </call>
             <tag name="monolog.logger" channel="snappy" />
         </service>
+        <service id="Knp\Snappy\Image" alias="knp_snappy.image" />
     </services>
 </container>

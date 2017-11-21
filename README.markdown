@@ -134,7 +134,7 @@ class SomeController
 ```php
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 
-class SomeController
+class SomeController extends Controller
 {
     public function pdfAction()
     {
@@ -155,7 +155,7 @@ class SomeController
 ```php
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 
-class SomeController
+class SomeController extends Controller
 {
     public function pdfAction()
     {
