@@ -57,7 +57,7 @@ If you want to change temporary folder which is ```sys_get_temp_dir()``` by defa
 ```yaml
 # app/config/config.yml
 knp_snappy:
-    temporary_folder: %kernel.cache_dir%/snappy
+    temporary_folder: "%kernel.cache_dir%/snappy"
 ```
 
 You can also configure the timeout used by the generators with `process_timeout`:
