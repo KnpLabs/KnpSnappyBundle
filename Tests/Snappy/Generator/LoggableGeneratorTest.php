@@ -3,11 +3,12 @@
 namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
 
 use Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group legacy
  */
-class LoggableGeneratorTest extends \PHPUnit_Framework_TestCase
+class LoggableGeneratorTest extends TestCase
 {
     public function testGenerate()
     {

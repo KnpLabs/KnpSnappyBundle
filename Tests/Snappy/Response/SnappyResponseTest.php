@@ -3,8 +3,9 @@
 namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
 
 use Knp\Bundle\SnappyBundle\Snappy\Response\SnappyResponse;
+use PHPUnit\Framework\TestCase;
 
-class SnappyResponseTest extends \PHPUnit_Framework_TestCase
+class SnappyResponseTest extends TestCase
 {
     public function testExceptionMessage()
     {

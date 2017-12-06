@@ -3,8 +3,9 @@
 namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
 
 use Knp\Bundle\SnappyBundle\Snappy\Response\JpegResponse;
+use PHPUnit\Framework\TestCase;
 
-class JpegResponseTest extends \PHPUnit_Framework_TestCase
+class JpegResponseTest extends TestCase
 {
     public function testDefaultParameters()
     {

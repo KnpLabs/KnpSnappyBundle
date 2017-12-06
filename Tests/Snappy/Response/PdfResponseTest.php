@@ -3,8 +3,9 @@
 namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
 
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
+use PHPUnit\Framework\TestCase;
 
-class PdfResponseTest extends \PHPUnit_Framework_TestCase
+class PdfResponseTest extends TestCase
 {
     public function testDefaultParameters()
     {
