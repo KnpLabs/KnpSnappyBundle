@@ -79,19 +79,19 @@ The bundle registers two services:
 ### Generate an image from a URL
 
 ```php
-$container->get('knp_snappy.image')->generate('http://www.google.fr', '/path/to/the/image.jpg');
+$container->get('knp_snappy.image')->generate('http://www.google.fr', '/path/to/the/image.jpg', array(), true);
 ```
 
 ### Generate a pdf document from a URL
 
 ```php
-$container->get('knp_snappy.pdf')->generate('http://www.google.fr', '/path/to/the/file.pdf');
+$container->get('knp_snappy.pdf')->generate('http://www.google.fr', '/path/to/the/file.pdf', array(), true);
 ```
 
 ### Generate a pdf document from multiple URLs
 
 ```php
-$container->get('knp_snappy.pdf')->generate(array('http://www.google.fr', 'http://www.knplabs.com', 'http://www.google.com'), '/path/to/the/file.pdf');
+$container->get('knp_snappy.pdf')->generate(array('http://www.google.fr', 'http://www.knplabs.com', 'http://www.google.com'), '/path/to/the/file.pdf', array(), true);
 ```
 
 ### Generate a pdf document from a twig view
@@ -104,7 +104,9 @@ $this->get('knp_snappy.pdf')->generateFromHtml(
             'some'  => $vars
         )
     ),
-    '/path/to/the/file.pdf'
+    '/path/to/the/file.pdf',
+    array(), //options
+    true //overwrite
 );
 ```
 
