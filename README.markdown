@@ -19,7 +19,7 @@ Current maintainer(s)
 Installation
 ------------
 
-With [composer](http://packagist.org), require:
+With [composer](https://getcomposer.org), require:
 
 `composer require knplabs/knp-snappy-bundle`
 
