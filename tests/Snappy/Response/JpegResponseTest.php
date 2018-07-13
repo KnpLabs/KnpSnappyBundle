@@ -14,7 +14,7 @@ class JpegResponseTest extends TestCase
         $this->assertSame(200, $response->getStatusCode());
         $this->assertSame('some_binary_output', $response->getContent());
         $this->assertSame('image/jpg', $response->headers->get('Content-Type'));
-        $this->assertSame('inline; filename=output.jpg', $response->headers->get('Content-Disposition'));
+        $this->assertRegExp('/inline; filename=\"?output\.jpg\"?/', $response->headers->get('Content-Disposition'));
     }
 
     public function testSetDifferentMimeType()
@@ -28,7 +28,7 @@ class JpegResponseTest extends TestCase
     {
         $fileName = 'test.jpg';
         $response = new JpegResponse('some_binary_output', $fileName);
-        $fileNameFromDispositionRegex = '/.*filename=([^"]+)/';
+        $fileNameFromDispositionRegex = '/.*filename=\"?([^"]+)\"?/';
 
         $this->assertSame(1, preg_match($fileNameFromDispositionRegex, $response->headers->get('Content-Disposition'), $matches), 1);
 
