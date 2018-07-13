@@ -1,5 +1,4 @@
 language: php
-dist: trusty
 
 sudo: false
 
@@ -10,26 +9,80 @@ cache:
 php:
   - 5.6
   - 7.0
-  - 7.1
-  - hhvm
-  
+  - 7.1.18
+  - 7.2
+  - nightly
+
+env:
+  global:
+    - MAINTAINED_SYMFONY_VERSIONS="2.8.*|3.4.*|4.0.*|4.1.*"
+  matrix:
+    - SYMFONY_VERSION="2.7.*"
+    - SYMFONY_VERSION="2.8.*"
+    - SYMFONY_VERSION="3.0.*"
+    - SYMFONY_VERSION="3.1.*"
+    - SYMFONY_VERSION="3.2.*"
+    - SYMFONY_VERSION="3.3.*"
+    - SYMFONY_VERSION="3.4.*"
+    - SYMFONY_VERSION="4.0.*"
+    - SYMFONY_VERSION="4.1.*"
+    - DEPENDENCIES="beta"
+
 matrix:
-  include:
-    - php: 5.6
-      env: SYMFONY_VERSION="3.4.*@dev"
-    - php: 7.0
-      env: SYMFONY_VERSION="2.8.*@dev symfony/phpunit-bridge:~2.7"
-    - php: 7.1
-      env: SYMFONY_VERSION="2.7.*@dev"
-    - php: 7.1
-      env: DEPENDENCIES=beta
   fast_finish: true
+  exclude:
+    - php: 5.6
+      env: SYMFONY_VERSION="4.0.*"
+    - php: 5.6
+      env: SYMFONY_VERSION="4.1.*"
+    - php: 5.6
+      env: DEPENDENCIES="beta"
+    - php: 7.0
+      env: SYMFONY_VERSION="4.0.*"
+    - php: 7.0
+      env: SYMFONY_VERSION="4.1.*"
+    - php: 7.0
+      env: DEPENDENCIES="beta"
+  allow_failures:
+    - php: nightly
+    - env: DEPENDENCIES="beta"
 
 before_install:
-    - if [ "$DEPENDENCIES" = "beta" ]; then composer config minimum-stability beta; fi;
-    - if [[ "$SYMFONY_VERSION" != "" ]]; then composer require --no-update symfony/symfony:${SYMFONY_VERSION}; fi
+  - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - if [ -n "$GH_TOKEN" ]; then
+      composer config github-oauth.github.com ${GH_TOKEN};
+    fi;
+  - mkdir -p build/logs
 
-install: composer update --prefer-dist
+install:
+  - if [ "$DEPENDENCIES" = "beta" ]; then
+      composer config minimum-stability beta;
+    fi;
+  - if [ "$SYMFONY_VERSION" != "4.1.*" ]; then
+      composer remove friendsofphp/php-cs-fixer --dev;
+    fi
+  - if [ "$SYMFONY_VERSION" != "" ]; then
+      composer remove symfony/symfony --dev &&
+      composer require symfony/symfony:"${SYMFONY_VERSION}" --dev --no-update;
+    fi
+  - composer update -n --prefer-dist
 
 script:
-  - vendor/bin/phpunit
+  - if [ "$SYMFONY_VERSION" != "4.1.*" ]; then
+      echo "File validation is skipped for older symfony versions";
+    else
+      composer validate-files;
+    fi;
+  - if [ "$SYMFONY_VERSION" != "4.1.*" ]; then
+      echo "Code style check is skipped for older symfony versions";
+    else
+      composer check-code-style;
+    fi;
+  - if [ "$MAINTAINED_SYMFONY_VERSIONS" != *"$SYMFONY_VERSION"* ]; then
+      echo "Security check is skipped as Symfony $SYMFONY_VERSION is not actively maintained";
+    elif [ "$(phpenv version-name)" = 7.0 ]; then
+      echo "Security check is skipped due to security-checker issue 100";
+    else
+      composer check-security;
+    fi;
+  - composer run-tests
