@@ -25,53 +25,53 @@ class ConfigurationTest extends TestCase
             [
                 [],
                 [
-                    'pdf'   => [
-                        'enabled'   => true,
-                        'binary'    => 'wkhtmltopdf',
-                        'options'   => [],
-                        'env'       => [],
+                    'pdf' => [
+                        'enabled' => true,
+                        'binary' => 'wkhtmltopdf',
+                        'options' => [],
+                        'env' => [],
                     ],
                     'image' => [
-                        'enabled'   => true,
-                        'binary'    => 'wkhtmltoimage',
-                        'options'   => [],
-                        'env'       => [],
+                        'enabled' => true,
+                        'binary' => 'wkhtmltoimage',
+                        'options' => [],
+                        'env' => [],
                     ],
                 ],
             ],
             [
                 [
                     [
-                        'pdf'   => [
-                            'binary'    => '/path/to/wkhtmltopdf',
-                            'options'   => ['foo' => 'bar'],
-                            'env'       => [],
+                        'pdf' => [
+                            'binary' => '/path/to/wkhtmltopdf',
+                            'options' => ['foo' => 'bar'],
+                            'env' => [],
                         ],
                         'image' => [
-                            'binary'    => '/path/to/wkhtmltoimage',
-                            'options'   => ['baz'  => 'bat', 'baf' => 'bag'],
-                            'env'       => [],
+                            'binary' => '/path/to/wkhtmltoimage',
+                            'options' => ['baz' => 'bat', 'baf' => 'bag'],
+                            'env' => [],
                         ],
                     ],
                     [
-                        'pdf'   => [
-                            'options'   => ['bak' => 'bap'],
-                            'env'       => [],
+                        'pdf' => [
+                            'options' => ['bak' => 'bap'],
+                            'env' => [],
                         ],
                     ],
                 ],
                 [
-                    'pdf'   => [
-                        'enabled'   => true,
-                        'binary'    => '/path/to/wkhtmltopdf',
-                        'options'   => ['bak' => 'bap'],
-                        'env'       => [],
+                    'pdf' => [
+                        'enabled' => true,
+                        'binary' => '/path/to/wkhtmltopdf',
+                        'options' => ['bak' => 'bap'],
+                        'env' => [],
                     ],
                     'image' => [
-                        'enabled'   => true,
-                        'binary'    => '/path/to/wkhtmltoimage',
-                        'options'   => ['baz' => 'bat', 'baf' => 'bag'],
-                        'env'       => [],
+                        'enabled' => true,
+                        'binary' => '/path/to/wkhtmltoimage',
+                        'options' => ['baz' => 'bat', 'baf' => 'bag'],
+                        'env' => [],
                     ],
                 ],
             ],
@@ -80,53 +80,53 @@ class ConfigurationTest extends TestCase
                     ['pdf' => ['enabled' => false]],
                 ],
                 [
-                    'pdf'   => [
-                        'enabled'   => false,
-                        'binary'    => 'wkhtmltopdf',
-                        'options'   => [],
-                        'env'       => [],
+                    'pdf' => [
+                        'enabled' => false,
+                        'binary' => 'wkhtmltopdf',
+                        'options' => [],
+                        'env' => [],
                     ],
                     'image' => [
-                        'enabled'   => true,
-                        'binary'    => 'wkhtmltoimage',
-                        'options'   => [],
-                        'env'       => [],
+                        'enabled' => true,
+                        'binary' => 'wkhtmltoimage',
+                        'options' => [],
+                        'env' => [],
                     ],
                 ],
             ],
             [
                 [
                     [
-                        'pdf'   => [
-                            'options'   => [
-                                'foo-bar'   => 'baz',
+                        'pdf' => [
+                            'options' => [
+                                'foo-bar' => 'baz',
                             ],
-                            'env'       => [],
+                            'env' => [],
                         ],
                         'image' => [
-                            'options'   => [
-                                'bag-baf'   => 'bak',
+                            'options' => [
+                                'bag-baf' => 'bak',
                             ],
-                            'env'       => [],
+                            'env' => [],
                         ],
                     ],
                 ],
                 [
-                    'pdf'   => [
-                        'enabled'   => true,
-                        'binary'    => 'wkhtmltopdf',
-                        'options'   => [
-                            'foo-bar'   => 'baz',
+                    'pdf' => [
+                        'enabled' => true,
+                        'binary' => 'wkhtmltopdf',
+                        'options' => [
+                            'foo-bar' => 'baz',
                         ],
-                        'env'       => [],
+                        'env' => [],
                     ],
                     'image' => [
-                        'enabled'   => true,
-                        'binary'    => 'wkhtmltoimage',
-                        'options'   => [
-                            'bag-baf'   => 'bak',
+                        'enabled' => true,
+                        'binary' => 'wkhtmltoimage',
+                        'options' => [
+                            'bag-baf' => 'bak',
                         ],
-                        'env'       => [],
+                        'env' => [],
                     ],
                 ],
             ],
@@ -138,17 +138,17 @@ class ConfigurationTest extends TestCase
                 ],
                 [
                     'process_timeout' => 120,
-                    'pdf'             => [
-                        'enabled'   => true,
-                        'binary'    => 'wkhtmltopdf',
-                        'options'   => [],
-                        'env'       => [],
+                    'pdf' => [
+                        'enabled' => true,
+                        'binary' => 'wkhtmltopdf',
+                        'options' => [],
+                        'env' => [],
                     ],
                     'image' => [
-                        'enabled'   => true,
-                        'binary'    => 'wkhtmltoimage',
-                        'options'   => [],
-                        'env'       => [],
+                        'enabled' => true,
+                        'binary' => 'wkhtmltoimage',
+                        'options' => [],
+                        'env' => [],
                     ],
                 ],
             ],
