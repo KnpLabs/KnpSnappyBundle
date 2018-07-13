@@ -1,6 +1,0 @@
-imports:
-    - { resource: 'base.yml' }
-
-knp_snappy:
-    image:
-        enabled: false

@@ -1,8 +1,0 @@
-imports:
-    - { resource: 'base.yml' }
-
-knp_snappy:
-    pdf:
-        binary: /custom/binary/for/wkhtmltopdf
-    image:
-        binary: /custom/binary/for/wkhtmltoimage
