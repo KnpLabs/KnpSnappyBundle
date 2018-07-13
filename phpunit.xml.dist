@@ -12,26 +12,23 @@
     processIsolation            = "false"
     stopOnFailure               = "false"
     syntaxCheck                 = "false"
-    bootstrap                   = "./Tests/bootstrap.php.dist" >
+    bootstrap                   = "vendor/autoload.php" >
 
     <testsuites>
         <testsuite name="KnpSnappyBundle Test Suite">
-            <directory>./Tests</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
 
     <php>
-        <server name="SYMFONY" value="./Resources/vendor/symfony/src" />
-        <server name="SNAPPY" value="./Resources/vendor/snappy/src" />
+        <server name="SYMFONY" value="./vendor/symfony/src" />
+        <server name="SNAPPY" value="./vendor/snappy/src" />
     </php>
 
 
     <filter>
         <whitelist>
-            <directory>.</directory>
-            <exclude>
-                <directory>./Tests</directory>
-            </exclude>
+            <directory>./src/</directory>
         </whitelist>
     </filter>
 

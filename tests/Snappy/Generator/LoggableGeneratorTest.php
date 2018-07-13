@@ -12,7 +12,7 @@ class LoggableGeneratorTest extends TestCase
 {
     public function testGenerate()
     {
-        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
             ->expects($this->once())
             ->method('generate')
@@ -23,7 +23,7 @@ class LoggableGeneratorTest extends TestCase
                 $this->equalTo(true)
             );
 
-        $logger = $this->getMock('Psr\Log\LoggerInterface');
+        $logger = $this->createMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -35,7 +35,7 @@ class LoggableGeneratorTest extends TestCase
 
     public function testGenerateFromHtml()
     {
-        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
             ->expects($this->once())
             ->method('generateFromHtml')
@@ -46,7 +46,7 @@ class LoggableGeneratorTest extends TestCase
                 $this->equalTo(true)
             );
 
-        $logger = $this->getMock('Psr\Log\LoggerInterface');
+        $logger = $this->createMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -58,7 +58,7 @@ class LoggableGeneratorTest extends TestCase
 
     public function testGenerateFromHtmlWithHtmlArray()
     {
-        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
             ->expects($this->once())
             ->method('generateFromHtml')
@@ -69,7 +69,7 @@ class LoggableGeneratorTest extends TestCase
                 $this->equalTo(true)
             );
 
-        $logger = $this->getMock('Psr\Log\LoggerInterface');
+        $logger = $this->createMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -81,7 +81,7 @@ class LoggableGeneratorTest extends TestCase
 
     public function testOutput()
     {
-        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
             ->expects($this->once())
             ->method('getOutput')
@@ -90,7 +90,7 @@ class LoggableGeneratorTest extends TestCase
                 $this->equalTo(['foo' => 'bar'])
             );
 
-        $logger = $this->getMock('Psr\Log\LoggerInterface');
+        $logger = $this->createMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -102,7 +102,7 @@ class LoggableGeneratorTest extends TestCase
 
     public function testOutputFromHtml()
     {
-        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
             ->expects($this->once())
             ->method('getOutputFromHtml')
@@ -111,7 +111,7 @@ class LoggableGeneratorTest extends TestCase
                 $this->equalTo(['foo' => 'bar'])
             );
 
-        $logger = $this->getMock('Psr\Log\LoggerInterface');
+        $logger = $this->createMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -123,7 +123,7 @@ class LoggableGeneratorTest extends TestCase
 
     public function testOutputFromHtmlWithHtmlArray()
     {
-        $internal = $this->getMock('Knp\Snappy\GeneratorInterface');
+        $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
             ->expects($this->once())
             ->method('getOutputFromHtml')
@@ -132,7 +132,7 @@ class LoggableGeneratorTest extends TestCase
                 $this->equalTo(['foo' => 'bar'])
             );
 
-        $logger = $this->getMock('Psr\Log\LoggerInterface');
+        $logger = $this->createMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->once())
             ->method('debug')
@@ -144,7 +144,7 @@ class LoggableGeneratorTest extends TestCase
 
     public function testSetOption()
     {
-        $internal = $this->getMock('Knp\Snappy\Image');
+        $internal = $this->createMock('Knp\Snappy\Image');
         $internal
             ->expects($this->at(0))
             ->method('setOption')
@@ -160,7 +160,7 @@ class LoggableGeneratorTest extends TestCase
                 $this->equalTo(['bar'=>'baz'])
             );
 
-        $logger = $this->getMock('Psr\Log\LoggerInterface');
+        $logger = $this->createMock('Psr\Log\LoggerInterface');
         $logger
             ->expects($this->at(0))
             ->method('debug')
