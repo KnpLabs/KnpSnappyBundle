@@ -1,10 +1,10 @@
 {
-    "name":        "knplabs/knp-snappy-bundle",
-    "type":        "symfony-bundle",
+    "name": "knplabs/knp-snappy-bundle",
+    "type": "symfony-bundle",
     "description": "Easily create PDF and images in Symfony2 by converting Twig/HTML templates.",
-    "keywords":    ["snappy", "pdf", "knplabs", "knp", "bundle"],
-    "homepage":    "http://github.com/KnpLabs/KnpSnappyBundle",
-    "license":     "MIT",
+    "keywords": ["snappy", "pdf", "knplabs", "knp", "bundle"],
+    "homepage": "http://github.com/KnpLabs/KnpSnappyBundle",
+    "license": "MIT",
 
     "authors": [
         {
@@ -16,12 +16,6 @@
             "homepage": "http://github.com/KnpLabs/KnpSnappyBundle/contributors"
         }
     ],
-
-    "require": {
-        "php":                      ">=5.6",
-        "symfony/framework-bundle": "~2.7|~3.0|^4.0",
-        "knplabs/knp-snappy":       "~1.0,>=1.0.1"
-    },
 
     "autoload": {
         "psr-4": {
@@ -37,18 +31,50 @@
         ]
     },
 
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.x-dev"
-        }
+    "require": {
+        "php": ">=5.6",
+        "symfony/framework-bundle": "~2.7|~3.0|^4.0",
+        "knplabs/knp-snappy": "~1.0,>=1.0.1"
     },
     "require-dev": {
         "doctrine/annotations": "~1.0",
-        "phpunit/phpunit": "~5.7",
+        "friendsofphp/php-cs-fixer": "^2.12.1",
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "phpunit/phpunit": "^5.7",
+        "sensiolabs/security-checker": "^4.1",
         "symfony/asset": "~2.7|~3.0|^4.0",
         "symfony/finder": "~2.7|~3.0|^4.0",
         "symfony/security-csrf": "~2.7|~3.0|^4.0",
         "symfony/templating": "~2.7|~3.0|^4.0",
         "symfony/validator": "~2.7|~3.0|^4.0"
-    }
+    },
+
+    "scripts": {
+        "validate-files": [
+            "bin/parallel-lint --exclude vendor --exclude bin ."
+        ],
+        "check-code-style": [
+            "bin/php-cs-fixer fix --config='./.php_cs' --no-interaction --diff --dry-run -v"
+        ],
+        "fix-code-style": [
+            "bin/php-cs-fixer fix --config='./.php_cs' --no-interaction --diff -v"
+        ],
+        "run-tests": [
+            "bin/phpunit"
+        ],
+        "check-security": [
+            "bin/security-checker security:check"
+        ]
+    },
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "sort-packages": true
+    },
+    "prefer-stable": true
 }

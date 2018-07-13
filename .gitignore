@@ -4,3 +4,4 @@
 # Composer files
 /composer.lock
 /vendor
+/bin
