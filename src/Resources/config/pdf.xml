@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="knp_snappy.pdf" class="Knp\Snappy\Pdf" public="true">
+            <argument>%knp_snappy.pdf.binary%</argument>
+            <argument>%knp_snappy.pdf.options%</argument>
+            <argument>%knp_snappy.pdf.env%</argument>
+            <call method="setLogger">
+                <argument type="service" id="logger" on-invalid="ignore" />
+            </call>
+            <tag name="monolog.logger" channel="snappy" />
+        </service>
+        <service id="Knp\Snappy\Pdf" alias="knp_snappy.pdf" />
+    </services>
+</container>

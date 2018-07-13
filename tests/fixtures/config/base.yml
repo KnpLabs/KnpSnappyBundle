@@ -1,0 +1,8 @@
+framework:
+    secret:          ThisIsNotReallyASecretSoPleaseChangeIt
+    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
+    csrf_protection: true
+    validation:      { enabled: true, enable_annotations: true }
+    templating:      { engines: ['php'] } #assets_version: SomeVersionScheme
+    session:         ~
+    translator:      { fallback: en }
