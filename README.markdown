@@ -162,7 +162,7 @@ class SomeController extends Controller
         $pageUrl = $this->generateUrl('homepage', array(), true); // use absolute path!
 
         return new PdfResponse(
-            $this->get('knp_snappy.pdf')->getOutput($html),
+            $this->get('knp_snappy.pdf')->getOutput($pageUrl),
             'file.pdf'
         );
     }
