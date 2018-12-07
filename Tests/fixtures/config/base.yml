@@ -5,4 +5,3 @@ framework:
     validation:      { enabled: true, enable_annotations: true }
     templating:      { engines: ['php'] } #assets_version: SomeVersionScheme
     session:         ~
-    translator:      { fallback: en }
