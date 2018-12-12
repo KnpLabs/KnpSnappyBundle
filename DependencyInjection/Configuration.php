@@ -24,9 +24,14 @@ class Configuration implements ConfigurationInterface
             return $fixedOptions;
         };
 
-        $treeBuilder = new TreeBuilder();
+        $treeBuilder = new TreeBuilder('knp_snappy');
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            // BC for symfony/config < 4.2
+            $rootNode = $treeBuilder->root('knp_snappy');
+        }
 
-        $rootNode = $treeBuilder->root('knp_snappy');
         $rootNode
             ->children()
                 ->scalarNode('temporary_folder')->end()
