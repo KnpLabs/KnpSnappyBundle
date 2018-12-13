@@ -1,3 +1,10 @@
+## v1.6.0
+
+* Drop unmaintained PHP versions (5.6 and 7.0, see #230)
+* Avoid deprecation warning when using symfony/config > 4.2 (see #229)
+
+Credits go to: @antograssiot and @NiR-. And we thank @garthlord and @Laurent3170 for their docs tweaks.
+
 ## v1.5.2
 
 A BC break has been introduced in v1.5.0: the LoggableGenerator has been moved in a new namespace. This is now fixed.
