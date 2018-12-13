@@ -1,3 +1,12 @@
+## v1.5.2
+
+A BC break has been introduced in v1.5.0: the LoggableGenerator has been moved in a new namespace. This is now fixed.
+
+* Fix BC break due to moved LoggableGenerator (#185)
+* Adding support for Symfony 4 (#190)
+
+Credits go to: @jzawadzki and @NiR-. Also, thank you @NAYZO, @carusogabriel and @antondachauer for your tweaks in the docs and for updating PHPUnit tests.
+
 ## v1.5.1
 
 * Re-put services as public (see #177)
