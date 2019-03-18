@@ -76,22 +76,24 @@ The bundle registers two services:
  - the `knp_snappy.image` service allows you to generate images;
  - the `knp_snappy.pdf` service allows you to generate pdf files.
 
+As you can see more explanations in [GeneratorInterface](https://github.com/KnpLabs/snappy/blob/master/src/Knp/Snappy/GeneratorInterface.php), you can use two parameters in `generate()` and `generateFomHtml()` methods, to provide an array of options and a boolean to overwrite the file.
+
 ### Generate an image from a URL
 
 ```php
-$container->get('knp_snappy.image')->generate('http://www.google.fr', '/path/to/the/image.jpg');
+$container->get('knp_snappy.image')->generate('http://www.google.fr', '/path/to/the/image.jpg', array(), true);
 ```
 
 ### Generate a pdf document from a URL
 
 ```php
-$container->get('knp_snappy.pdf')->generate('http://www.google.fr', '/path/to/the/file.pdf');
+$container->get('knp_snappy.pdf')->generate('http://www.google.fr', '/path/to/the/file.pdf', array(), true);
 ```
 
 ### Generate a pdf document from multiple URLs
 
 ```php
-$container->get('knp_snappy.pdf')->generate(array('http://www.google.fr', 'http://www.knplabs.com', 'http://www.google.com'), '/path/to/the/file.pdf');
+$container->get('knp_snappy.pdf')->generate(array('http://www.google.fr', 'http://www.knplabs.com', 'http://www.google.com'), '/path/to/the/file.pdf', array(), true);
 ```
 
 ### Generate a pdf document from a twig view
@@ -105,6 +107,8 @@ $this->get('knp_snappy.pdf')->generateFromHtml(
         )
     ),
     '/path/to/the/file.pdf'
+    array(), //options
+    true //overwrite
 );
 ```
 
