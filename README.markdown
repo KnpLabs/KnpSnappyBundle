@@ -106,7 +106,7 @@ $this->get('knp_snappy.pdf')->generateFromHtml(
             'some'  => $vars
         )
     ),
-    '/path/to/the/file.pdf'
+    '/path/to/the/file.pdf',
     array(), //options
     true //overwrite
 );
