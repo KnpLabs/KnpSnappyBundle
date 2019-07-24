@@ -11,11 +11,6 @@ It allows you to generate either pdf or image files from your html documents, us
 
 The KnpSnappyBundle provides a simple integration for your Symfony project.
 
-Current maintainer(s)
----------------------
-
-* [NiR-](https://github.com/NiR-)
-
 Installation
 ------------
 
@@ -168,6 +163,15 @@ class SomeController extends Controller
     }
 }
 ```
+
+Maintainers
+-----------
+
+KNPLabs is looking for maintainers ([see why](https://knplabs.com/en/blog/news-for-our-foss-projects-maintenance)).
+
+If you are interested, feel free to open a PR to ask to be added as a maintainer.
+
+We’ll be glad to hear from you :)
 
 Credits
 -------
