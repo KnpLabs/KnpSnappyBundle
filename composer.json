@@ -5,7 +5,6 @@
     "keywords":    ["snappy", "pdf", "knplabs", "knp", "bundle"],
     "homepage":    "http://github.com/KnpLabs/KnpSnappyBundle",
     "license":     "MIT",
-
     "authors": [
         {
             "name": "KnpLabs Team",
@@ -19,7 +18,7 @@
 
     "require": {
         "php":                      ">=7.1",
-        "symfony/framework-bundle": "~2.7|~3.0|^4.0",
+        "symfony/framework-bundle": "~2.7|~3.0|~5.0",
         "knplabs/knp-snappy":       "~1.0,>=1.0.1"
     },
 
@@ -37,11 +36,11 @@
     "require-dev": {
         "doctrine/annotations": "~1.0",
         "phpunit/phpunit": "~7.4",
-        "symfony/asset": "~2.7|~3.0|^4.0",
-        "symfony/finder": "~2.7|~3.0|^4.0",
-        "symfony/security-csrf": "~2.7|~3.0|^4.0",
-        "symfony/templating": "~2.7|~3.0|^4.0",
-        "symfony/validator": "~2.7|~3.0|^4.0",
-        "symfony/yaml": "~3.0|~4.0"
+        "symfony/asset": "~2.7|~3.0|~5.0",
+        "symfony/finder": "~2.7|~3.0|~5.0",
+        "symfony/security-csrf": "~2.7|~3.0|~5.0",
+        "symfony/templating": "~2.7|~3.0|~5.0",
+        "symfony/validator": "~2.7|~3.0|~5.0",
+        "symfony/yaml": "~3.0|~4.0|~5.0"
     }
 }
