@@ -1,32 +1,38 @@
 language: php
-
+sudo: false
 cache:
-  directories:
-    - $HOME/.composer/cache
+    directories:
+        - $HOME/.composer/cache/files
+        - $HOME/symfony-bridge/.phpunit
 
-php:
-  - 7.1
-  - 7.2
-  - 7.3
+env:
+    global:
+        - PHPUNIT_FLAGS="-v"
+        - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
+        - SYMFONY_REQUIRE='>=2.8'
 
 matrix:
-  include:
-    - php: 7.3
-      env: SYMFONY_VERSION="5.0.*@dev"
-    - php: 7.1
-      env: SYMFONY_VERSION="4.3.*@dev"
-    - php: 7.3
-      env: SYMFONY_VERSION="3.4.*@dev"
-    - php: 7.2
-      env: DEPENDENCIES=beta
-  fast_finish: true
+    fast_finish: true
+    include:
+        - php: 7.1
+        - php: 7.2
+        - php: 7.3
+          env: deps=low
 
 before_install:
-    - if [ "$DEPENDENCIES" = "beta" ]; then composer config minimum-stability beta; fi;
-    - if [ "$DEPENDENCIES" = "dev" ]; then composer config minimum-stability dev; fi;
-    - if [[ "$SYMFONY_VERSION" != "" ]]; then composer require --no-update symfony/symfony:${SYMFONY_VERSION}; fi
+    - phpenv config-rm xdebug.ini || true
+    - composer global require --no-progress --no-scripts --no-plugins symfony/flex dev-master
 
-install: composer update --prefer-dist
+install:
+    - |
+      if [[ $deps = low ]]; then
+          export SYMFONY_DEPRECATIONS_HELPER=weak
+          composer update --prefer-dist --prefer-lowest --prefer-stable
+      else
+          composer update --prefer-dist
+      fi
+    - ./vendor/bin/simple-phpunit install
 
 script:
-  - vendor/bin/phpunit
+    - composer validate --strict --no-check-lock
+    - ./vendor/bin/simple-phpunit $PHPUNIT_FLAGS
