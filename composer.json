@@ -15,7 +15,7 @@
             "homepage": "http://github.com/KnpLabs/KnpSnappyBundle/contributors"
         }
     ],
-
+    "minimum-stability": "dev",
     "require": {
         "php":                      ">=7.1",
         "symfony/framework-bundle": "^3.4|^4.3|^5.0",
@@ -35,9 +35,9 @@
     },
     "require-dev": {
         "doctrine/annotations": "~1.0",
-        "phpunit/phpunit": "~7.4",
         "symfony/asset": "^3.4|^4.3|^5.0",
         "symfony/finder": "^3.4|^4.3|^5.0",
+        "symfony/phpunit-bridge": "^4.3|^5.0",
         "symfony/security-csrf": "^3.4|^4.3|^5.0",
         "symfony/templating": "^3.4|^4.3|^5.0",
         "symfony/validator": "^3.4|^4.3|^5.0",
