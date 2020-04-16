@@ -1,12 +1,5 @@
 <?php
-
-/**
-Deprecation Notice: Class Knp\Bundle\SnappyBundle\Tests\Snappy\LoggableGeneratorTest located in ./vendor/knplabs/knp-snappy-bundle/Tests/Snappy/Generator/LoggableGeneratorTest.php does not comply with psr-4 autoloading standard. It will not autoload anymore in Composer v2.0. in phar:///usr/bin/composer/src/Composer/Autoload/ClassMapGenerator.php:201
-Deprecation Notice: Class Knp\Bundle\SnappyBundle\DependencyInjection\ConfigurationTest located in ./vendor/knplabs/knp-snappy-bundle/Tests/DependencyInjection/ConfigurationTest.php does not comply with psr-4 autoloading standard. It will not autoload anymore in Composer v2.0. in phar:///usr/bin/composer/src/Composer/Autoload/ClassMapGenerator.php:201
-
- */
-
-namespace Knp\Bundle\SnappyBundle\Tests\Response\Snappy;
+namespace Knp\Bundle\SnappyBundle\Tests\Snappy\Response;
 
 use Knp\Bundle\SnappyBundle\Snappy\Response\JpegResponse;
 use PHPUnit\Framework\TestCase;
