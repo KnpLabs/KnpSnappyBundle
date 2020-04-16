@@ -1,6 +1,6 @@
 <?php
 
-namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
+namespace Knp\Bundle\SnappyBundle\Tests\Snappy\Generator;
 
 use Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator;
 use PHPUnit\Framework\TestCase;

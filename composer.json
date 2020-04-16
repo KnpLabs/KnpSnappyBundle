@@ -28,6 +28,11 @@
         }
     },
 
+    "autoload-dev": {
+        "psr-4": {
+            "Knp\\Bundle\\SnappyBundle\\Tests\\": ""
+        }
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.x-dev"

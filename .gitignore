@@ -1,5 +1,6 @@
 /nbproject
 .DS_Store
+/.idea
 
 # Composer files
 /composer.lock
