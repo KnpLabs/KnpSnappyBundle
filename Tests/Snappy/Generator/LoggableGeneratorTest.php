@@ -157,7 +157,7 @@ class LoggableGeneratorTest extends TestCase
             ->method('setOption')
             ->with(
                 $this->equalTo('foo'),
-                $this->equalTo(['bar'=>'baz'])
+                $this->equalTo(['bar' => 'baz'])
             );
 
         $logger = $this->createMock('Psr\Log\LoggerInterface');
@@ -169,13 +169,13 @@ class LoggableGeneratorTest extends TestCase
             ->expects($this->at(1))
             ->method('debug')
             ->with($this->equalTo(
-'Set option foo = array (
+                'Set option foo = array (
   \'bar\' => \'baz\',
 ).'
             ));
 
         $generator = new LoggableGenerator($internal, $logger);
         $generator->setOption('foo', 'bar');
-        $generator->setOption('foo', ['bar'=>'baz']);
+        $generator->setOption('foo', ['bar' => 'baz']);
     }
 }
