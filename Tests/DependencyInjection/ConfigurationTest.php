@@ -2,6 +2,7 @@
 
 namespace Knp\Bundle\SnappyBundle\Tests\DependencyInjection;
 
+use Knp\Bundle\SnappyBundle\DependencyInjection\Configuration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Processor;
 
