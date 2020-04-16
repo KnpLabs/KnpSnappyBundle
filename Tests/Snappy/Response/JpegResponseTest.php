@@ -1,4 +1,5 @@
 <?php
+
 namespace Knp\Bundle\SnappyBundle\Tests\Snappy\Response;
 
 use Knp\Bundle\SnappyBundle\Snappy\Response\JpegResponse;
