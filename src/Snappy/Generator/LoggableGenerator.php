@@ -43,7 +43,7 @@ class LoggableGenerator implements GeneratorInterface
     /**
      * {@inheritdoc}
      */
-    public function generate($input, $output, array $options = [], $overwrite = false)
+    public function generate($input, string $output, array $options = [], bool $overwrite = false): void
     {
         if (is_array($input)) {
             $debug_input = implode(', ', $input);
@@ -58,7 +58,7 @@ class LoggableGenerator implements GeneratorInterface
     /**
      * {@inheritdoc}
      */
-    public function generateFromHtml($html, $output, array $options = [], $overwrite = false)
+    public function generateFromHtml($html, string $output, array $options = [], bool $overwrite = false): void
     {
         $debugHtml = is_array($html) ? implode(', ', $html) : $html;
 
@@ -70,7 +70,7 @@ class LoggableGenerator implements GeneratorInterface
     /**
      * {@inheritdoc}
      */
-    public function getOutput($input, array $options = [])
+    public function getOutput($input, array $options = []): string
     {
         if (is_array($input)) {
             $debug_input = implode(', ', $input);
@@ -85,7 +85,7 @@ class LoggableGenerator implements GeneratorInterface
     /**
      * {@inheritdoc}
      */
-    public function getOutputFromHtml($html, array $options = [])
+    public function getOutputFromHtml($html, array $options = []): string
     {
         $debugHtml = is_array($html) ? implode(', ', $html) : $html;
 
