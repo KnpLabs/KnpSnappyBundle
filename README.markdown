@@ -173,6 +173,13 @@ If you are interested, feel free to open a PR to ask to be added as a maintainer
 
 We’ll be glad to hear from you :)
 
+
+Current maintainer(s)
+---------------------
+
+* [jbdelhommeau](https://github.com/jbdelhommeau)
+
+
 Credits
 -------
 
