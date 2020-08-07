@@ -1,6 +1,6 @@
 <?php
 
-namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
+namespace Knp\Bundle\SnappyBundle\Tests\Snappy\Generator;
 
 use Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator;
 use PHPUnit\Framework\TestCase;
@@ -169,7 +169,7 @@ class LoggableGeneratorTest extends TestCase
             ->expects($this->at(1))
             ->method('debug')
             ->with($this->equalTo(
-'Set option foo = array (
+                'Set option foo = array (
   \'bar\' => \'baz\',
 ).'
             ));
