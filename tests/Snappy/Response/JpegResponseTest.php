@@ -1,6 +1,6 @@
 <?php
 
-namespace Knp\Bundle\SnappyBundle\Tests\Snappy;
+namespace Knp\Bundle\SnappyBundle\Tests\Snappy\Response;
 
 use Knp\Bundle\SnappyBundle\Snappy\Response\JpegResponse;
 use PHPUnit\Framework\TestCase;

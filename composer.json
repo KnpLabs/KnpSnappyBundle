@@ -1,7 +1,7 @@
 {
     "name":        "knplabs/knp-snappy-bundle",
     "type":        "symfony-bundle",
-    "description": "Easily create PDF and images in Symfony2 by converting Twig/HTML templates.",
+    "description": "Easily create PDF and images in Symfony by converting Twig/HTML templates.",
     "keywords":    ["snappy", "pdf", "knplabs", "knp", "bundle"],
     "homepage":    "http://github.com/KnpLabs/KnpSnappyBundle",
     "license":     "MIT",
@@ -15,19 +15,21 @@
             "homepage": "http://github.com/KnpLabs/KnpSnappyBundle/contributors"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php":                      ">=7.1",
         "symfony/framework-bundle": "^3.4|^4.3|^5.0",
         "knplabs/knp-snappy":       "~1.0,>=1.0.1"
     },
-
     "autoload": {
         "psr-4": {
-            "Knp\\Bundle\\SnappyBundle\\": ""
+            "Knp\\Bundle\\SnappyBundle\\": "src/"
         }
     },
-
+    "autoload-dev": {
+        "psr-4": {
+            "Knp\\Bundle\\SnappyBundle\\Tests\\": "tests/"
+        }
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.x-dev"
