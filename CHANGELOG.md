@@ -1,3 +1,16 @@
+## v1.7.1
+
+* Fix composer deprecation notices #268
+
+Credits go to: @alexpozzi
+
+## v1.7.0
+
+* Add Symfony 5 compatibility
+* Drop support for unmaintained Symfony versions 2.7, 2.8, 3.0, 3.1, 3.2, 3.3, 4.0, 4.1 and 4.2
+
+Credits go to: @weaverryan, @zairigimad and @Einenlum
+
 ## v1.6.0
 
 * Drop unmaintained PHP versions (5.6 and 7.0, see #230)
