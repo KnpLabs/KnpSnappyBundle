@@ -16,9 +16,9 @@
         }
     ],
     "require": {
-        "php":                      ">=7.1",
-        "symfony/framework-bundle": "^3.4|^4.3|^5.0",
-        "knplabs/knp-snappy":       "~1.0,>=1.0.1"
+        "php":                      ">=7.2.5",
+        "symfony/framework-bundle": "^4.4|^5.1",
+        "knplabs/knp-snappy":       "^1.2"
     },
     "autoload": {
         "psr-4": {
@@ -30,19 +30,14 @@
             "Knp\\Bundle\\SnappyBundle\\Tests\\": "tests/"
         }
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.x-dev"
-        }
-    },
     "require-dev": {
-        "doctrine/annotations": "~1.0",
-        "symfony/asset": "^3.4|^4.3|^5.0",
-        "symfony/finder": "^3.4|^4.3|^5.0",
-        "symfony/phpunit-bridge": "^4.3|^5.0",
-        "symfony/security-csrf": "^3.4|^4.3|^5.0",
-        "symfony/templating": "^3.4|^4.3|^5.0",
-        "symfony/validator": "^3.4|^4.3|^5.0",
-        "symfony/yaml": "^3.4|^4.3|^5.0"
+        "doctrine/annotations": "^1.11",
+        "symfony/asset": "^4.4|^5.1",
+        "symfony/finder": "^4.4|^5.1",
+        "symfony/phpunit-bridge": "^4.4|^5.1",
+        "symfony/security-csrf": "^4.4|^5.1",
+        "symfony/templating": "^4.4|^5.1",
+        "symfony/validator": "^4.4|^5.1",
+        "symfony/yaml": "^4.4|^5.1"
     }
 }
