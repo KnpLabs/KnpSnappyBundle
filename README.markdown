@@ -18,16 +18,17 @@ With [composer](https://getcomposer.org), require:
 
 `composer require knplabs/knp-snappy-bundle`
 
-Then enable it in your kernel (optional if you are using the Flex recipe with Symfony4) :
+Then enable it in your kernel (optional if you are using the Flex recipe with Symfony >= 4) :
 
 ```php
-// app/AppKernel.php
-public function registerBundles()
-{
-    $bundles = array(
-        //...
-        new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
-        //...
+// config/bundles.php
+<?php
+
+return [
+    //...
+    Knp\Bundle\SnappyBundle\KnpSnappyBundle::class => ['all' => true],
+    //...
+];
 ```
 Configuration
 -------------
@@ -74,25 +75,29 @@ The bundle registers two services:
 ### Generate an image from a URL
 
 ```php
-$container->get('knp_snappy.image')->generate('http://www.google.fr', '/path/to/the/image.jpg');
+// @var Knp\Snappy\Image
+$knpSnappyImage->generate('http://www.google.fr', '/path/to/the/image.jpg');
 ```
 
 ### Generate a pdf document from a URL
 
 ```php
-$container->get('knp_snappy.pdf')->generate('http://www.google.fr', '/path/to/the/file.pdf');
+// @var Knp\Snappy\Pdf
+$knpSnappyPdf->generate('http://www.google.fr', '/path/to/the/file.pdf');
 ```
 
 ### Generate a pdf document from multiple URLs
 
 ```php
-$container->get('knp_snappy.pdf')->generate(array('http://www.google.fr', 'http://www.knplabs.com', 'http://www.google.com'), '/path/to/the/file.pdf');
+// @var Knp\Snappy\Pdf
+$knpSnappyPdf->generate(array('http://www.google.fr', 'http://www.knplabs.com', 'http://www.google.com'), '/path/to/the/file.pdf');
 ```
 
 ### Generate a pdf document from a twig view
 
 ```php
-$this->get('knp_snappy.pdf')->generateFromHtml(
+// @var Knp\Snappy\Pdf
+$knpSnappyPdf->generateFromHtml(
     $this->renderView(
         'MyBundle:Foo:bar.html.twig',
         array(
@@ -107,17 +112,18 @@ $this->get('knp_snappy.pdf')->generateFromHtml(
 
 ```php
 use Knp\Bundle\SnappyBundle\Snappy\Response\JpegResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class SomeController
+class SomeController extends AbstractController
 {
-    public function imageAction()
+    public function imageAction(Knp\Snappy\Image $knpSnappyImage)
     {
         $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
             'some'  => $vars
         ));
 
         return new JpegResponse(
-            $this->get('knp_snappy.image')->getOutputFromHtml($html),
+            $knpSnappyImage->getOutputFromHtml($html),
             'image.jpg'
         );
     }
@@ -128,17 +134,18 @@ class SomeController
 
 ```php
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class SomeController extends Controller
+class SomeController extends AbstractController
 {
-    public function pdfAction()
+    public function pdfAction(Knp\Snappy\Pdf $knpSnappyPdf)
     {
         $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
             'some'  => $vars
         ));
 
         return new PdfResponse(
-            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            $knpSnappyPdf->getOutputFromHtml($html),
             'file.pdf'
         );
     }
@@ -149,15 +156,16 @@ class SomeController extends Controller
 
 ```php
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class SomeController extends Controller
+class SomeController extends AbstractController
 {
-    public function pdfAction()
+    public function pdfAction(Knp\Snappy\Pdf $knpSnappyPdf)
     {
         $pageUrl = $this->generateUrl('homepage', array(), true); // use absolute path!
 
         return new PdfResponse(
-            $this->get('knp_snappy.pdf')->getOutput($pageUrl),
+            $knpSnappyPdf->getOutput($pageUrl),
             'file.pdf'
         );
     }

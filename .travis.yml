@@ -9,24 +9,23 @@ env:
     global:
         - PHPUNIT_FLAGS="-v"
         - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
-        - SYMFONY_REQUIRE='>=2.8'
-        - SYMFONY_DEPRECATIONS_HELPER="weak"
 
 matrix:
     fast_finish: true
     include:
-        - php: 7.1
         - php: 7.2
         - php: 7.3
+        - php: 7.4
           env: deps=low
 
 before_install:
     - phpenv config-rm xdebug.ini || true
-    - composer global require --no-progress --no-scripts --no-plugins symfony/flex dev-master
+    - composer global require --no-progress --no-scripts --no-plugins symfony/flex dev-main
 
 install:
     - |
       if [[ $deps = low ]]; then
+          export SYMFONY_DEPRECATIONS_HELPER=weak
           composer update --prefer-dist --prefer-lowest --prefer-stable
       else
           composer update --prefer-dist
