@@ -35,7 +35,7 @@ jobs:
                       php: '7.4'
                       symfony: 4.4.*
                       env:
-                          SYMFONY_DEPRECATIONS_HELPER: disabled=1
+                          SYMFONY_DEPRECATIONS_HELPER: max[direct]=0
                     - description: 'Dev deps'
                       php: '7.4'
                       dev: true
