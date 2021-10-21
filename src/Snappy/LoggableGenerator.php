@@ -7,7 +7,7 @@ use Knp\Bundle\SnappyBundle\Snappy\Generator\LoggableGenerator as BaseGenerator;
 /**
  * This class was unfortunately moved in v1.5.0, thus creating a BC break.
  *
- * @deprecated
+ * @deprecated v1.5.0
  */
 class LoggableGenerator extends BaseGenerator
 {
