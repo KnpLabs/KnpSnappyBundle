@@ -11,7 +11,7 @@ use Psr\Log\LoggerInterface;
  * Wraps a GeneratorInterface instance to log the media generations using the
  * configured logger.
  *
- * @deprecated Logging capability is now directly integrated in Snappy. You should use it rather than this Decorator.
+ * @deprecated 1.5.0 Logging capability is now directly integrated in Snappy. You should use it rather than this Decorator.
  */
 class LoggableGenerator implements GeneratorInterface
 {
