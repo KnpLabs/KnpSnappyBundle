@@ -31,6 +31,10 @@ jobs:
                       composer_option: '--prefer-lowest'
                       env:
                           SYMFONY_DEPRECATIONS_HELPER: max[self]=0
+                    - description: 'Symfony 4.4'
+                      php: '7.4'
+                      symfony: 4.4.*
+                          SYMFONY_DEPRECATIONS_HELPER: disabled
                     - description: 'Dev deps'
                       php: '7.4'
                       dev: true
