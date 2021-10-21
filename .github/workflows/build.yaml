@@ -34,6 +34,7 @@ jobs:
                     - description: 'Symfony 4.4'
                       php: '7.4'
                       symfony: 4.4.*
+                      env:
                           SYMFONY_DEPRECATIONS_HELPER: disabled=1
                     - description: 'Dev deps'
                       php: '7.4'
