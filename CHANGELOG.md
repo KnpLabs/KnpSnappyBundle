@@ -1,3 +1,6 @@
+## vx.x.x
+* Drop support for PHP 7.2 and 7.3
+
 ## v1.7.1
 
 * Fix composer deprecation notices #268

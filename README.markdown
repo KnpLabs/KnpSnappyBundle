@@ -5,7 +5,7 @@ KnpSnappyBundle
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/KnpLabs/KnpSnappyBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/KnpLabs/KnpSnappyBundle/?branch=master)
 [![StyleCI](https://styleci.io/repos/743218/shield?branch=master)](https://styleci.io/repos/743218)
 
-[Snappy][snappy] is a PHP (5.6+) wrapper for the [wkhtmltopdf][wkhtmltopdf] conversion utility.
+[Snappy][snappy] is a PHP wrapper for the [wkhtmltopdf][wkhtmltopdf] conversion utility.
 It allows you to generate either pdf or image files from your html documents, using the webkit engine.
 
 The KnpSnappyBundle provides a simple integration for your Symfony project.
