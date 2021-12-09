@@ -17,7 +17,7 @@
     ],
     "require": {
         "php":                      ">=7.2.5",
-        "symfony/framework-bundle": "^4.4|^5.1",
+        "symfony/framework-bundle": "^4.4|^5.1|^6.0",
         "knplabs/knp-snappy":       "^1.2"
     },
     "autoload": {
@@ -32,12 +32,12 @@
     },
     "require-dev": {
         "doctrine/annotations": "^1.11",
-        "symfony/asset": "^4.4|^5.1",
-        "symfony/finder": "^4.4|^5.1",
-        "symfony/phpunit-bridge": "^4.4|^5.1",
-        "symfony/security-csrf": "^4.4|^5.1",
-        "symfony/templating": "^4.4|^5.1",
-        "symfony/validator": "^4.4|^5.1",
-        "symfony/yaml": "^4.4|^5.1"
+        "symfony/asset": "^4.4|^5.1|^6.0",
+        "symfony/finder": "^4.4|^5.1|^6.0",
+        "symfony/phpunit-bridge": "^4.4|^5.1|^6.0",
+        "symfony/security-csrf": "^4.4|^5.1|^6.0",
+        "symfony/templating": "^4.4|^5.1|^6.0",
+        "symfony/validator": "^4.4|^5.1|^6.0",
+        "symfony/yaml": "^4.4|^5.1|^6.0"
     }
 }
