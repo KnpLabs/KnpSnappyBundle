@@ -115,7 +115,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SomeController extends AbstractController
 {
-    public function imageAction(Knp\Snappy\Image $knpSnappyImage)
+    public function imageAction(\Knp\Snappy\Image $knpSnappyImage)
     {
         $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
             'some'  => $vars
@@ -137,7 +137,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SomeController extends AbstractController
 {
-    public function pdfAction(Knp\Snappy\Pdf $knpSnappyPdf)
+    public function pdfAction(\Knp\Snappy\Pdf $knpSnappyPdf)
     {
         $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
             'some'  => $vars
@@ -159,7 +159,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SomeController extends AbstractController
 {
-    public function pdfAction(Knp\Snappy\Pdf $knpSnappyPdf)
+    public function pdfAction(\Knp\Snappy\Pdf $knpSnappyPdf)
     {
         $pageUrl = $this->generateUrl('homepage', array(), true); // use absolute path!
 
