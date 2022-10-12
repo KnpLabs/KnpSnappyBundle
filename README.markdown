@@ -10,6 +10,12 @@ It allows you to generate either pdf or image files from your html documents, us
 
 The KnpSnappyBundle provides a simple integration for your Symfony project.
 
+Limitation
+----------
+
+As [wkhtmltopdf][wkhtmltopdf] is not fully compatible with ES6, if your html documents rendering uses js, they may be partially broken. This is especially true if you transpile your js to es6 (this happens typically if you uses webpack/babel).
+
+
 Installation
 ------------
 
