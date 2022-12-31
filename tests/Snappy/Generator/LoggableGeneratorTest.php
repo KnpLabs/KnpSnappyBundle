@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
  */
 class LoggableGeneratorTest extends TestCase
 {
-    public function testGenerate()
+    public function testGenerate(): void
     {
         $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
@@ -33,7 +33,7 @@ class LoggableGeneratorTest extends TestCase
         $generator->generate('the_input_file', 'the_output_file', ['foo' => 'bar'], true);
     }
 
-    public function testGenerateFromHtml()
+    public function testGenerateFromHtml(): void
     {
         $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
@@ -56,7 +56,7 @@ class LoggableGeneratorTest extends TestCase
         $generator->generateFromHtml('<html>foo</html>', 'the_output_file', ['foo' => 'bar'], true);
     }
 
-    public function testGenerateFromHtmlWithHtmlArray()
+    public function testGenerateFromHtmlWithHtmlArray(): void
     {
         $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
@@ -79,7 +79,7 @@ class LoggableGeneratorTest extends TestCase
         $generator->generateFromHtml(['<html>foo</html>', '<html>bar</html>'], 'the_output_file', ['foo' => 'bar'], true);
     }
 
-    public function testOutput()
+    public function testOutput(): void
     {
         $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
@@ -100,7 +100,7 @@ class LoggableGeneratorTest extends TestCase
         $generator->getOutput('the_input_file', ['foo' => 'bar'], true);
     }
 
-    public function testOutputFromHtml()
+    public function testOutputFromHtml(): void
     {
         $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
@@ -121,7 +121,7 @@ class LoggableGeneratorTest extends TestCase
         $generator->getOutputFromHtml('<html>foo</html>', ['foo' => 'bar'], true);
     }
 
-    public function testOutputFromHtmlWithHtmlArray()
+    public function testOutputFromHtmlWithHtmlArray(): void
     {
         $internal = $this->createMock('Knp\Snappy\GeneratorInterface');
         $internal
@@ -142,7 +142,7 @@ class LoggableGeneratorTest extends TestCase
         $generator->getOutputFromHtml(['<html>foo</html>'], ['foo' => 'bar'], true);
     }
 
-    public function testSetOption()
+    public function testSetOption(): void
     {
         $internal = $this->createMock('Knp\Snappy\Image');
         $internal

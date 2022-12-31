@@ -11,7 +11,7 @@ class ConfigurationTest extends TestCase
     /**
      * @dataProvider dataForProcessedConfiguration
      */
-    public function testProcessedConfiguration($configs, $expectedConfig)
+    public function testProcessedConfiguration($configs, $expectedConfig): void
     {
         $processor = new Processor();
         $configuration = new Configuration();
@@ -20,7 +20,7 @@ class ConfigurationTest extends TestCase
         $this->assertEquals($expectedConfig, $config);
     }
 
-    public function dataForProcessedConfiguration()
+    public function dataForProcessedConfiguration(): array
     {
         return [
             [
