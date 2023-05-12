@@ -31,7 +31,6 @@
         }
     },
     "require-dev": {
-        "doctrine/annotations": "^1.11",
         "symfony/asset": "^4.4|^5.1|^6.0",
         "symfony/finder": "^4.4|^5.1|^6.0",
         "symfony/phpunit-bridge": "^4.4|^5.1|^6.0",
