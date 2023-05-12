@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class SnappyResponseTest extends TestCase
 {
-    public function testExceptionMessage()
+    public function testExceptionMessage(): void
     {
         try {
             new SnappyResponse('', 'test.jpg', 'image/jpg', 'foo');

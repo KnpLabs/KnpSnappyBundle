@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class JpegResponseTest extends TestCase
 {
-    public function testDefaultParameters()
+    public function testDefaultParameters(): void
     {
         $response = new JpegResponse('some_binary_output');
 
@@ -17,14 +17,14 @@ class JpegResponseTest extends TestCase
         $this->assertSame('inline; filename=output.jpg', str_replace('"', '', $response->headers->get('Content-Disposition')));
     }
 
-    public function testSetDifferentMimeType()
+    public function testSetDifferentMimeType(): void
     {
         $response = new JpegResponse('some_binary_output', 'test.jpg', 'application/octet-stream');
 
         $this->assertSame('application/octet-stream', $response->headers->get('Content-Type'));
     }
 
-    public function testSetDifferentFileName()
+    public function testSetDifferentFileName(): void
     {
         $fileName = 'test.jpg';
         $response = new JpegResponse('some_binary_output', $fileName);
