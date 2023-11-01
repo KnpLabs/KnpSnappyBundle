@@ -1,7 +1,7 @@
 framework:
     secret: ThisIsNotReallyASecretSoPleaseChangeIt
     router: { resource: "%kernel.project_dir%/config/routing.yml", utf8: true }
-    validation: { enabled: true, enable_annotations: false }
+    validation: { enabled: true }
     #validation: { enabled: true, enable_annotations: false, email_validation_mode: html5 }
     http_method_override: false
     #handle_all_throwables: true
