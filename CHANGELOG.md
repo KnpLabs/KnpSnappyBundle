@@ -1,4 +1,7 @@
-## vx.x.x
+## v1.9.3
+* Add Symfony 7 compatibility
+
+## v1.9.0
 * Drop support for PHP 7.2 and 7.3
 
 ## v1.7.1
