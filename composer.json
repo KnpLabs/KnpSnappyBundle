@@ -33,7 +33,7 @@
     "require-dev": {
         "symfony/asset": "^4.4|^5.1|^6.0|^7.0",
         "symfony/finder": "^4.4|^5.1|^6.0|^7.0",
-        "symfony/phpunit-bridge": "^6.0|^7.0",
+        "symfony/phpunit-bridge": "^6.4|^7.0",
         "symfony/security-csrf": "^4.4|^5.1|^6.0|^7.0",
         "symfony/templating": "^4.4|^5.1|^6.0|^7.0",
         "symfony/validator": "^4.4|^5.1|^6.0|^7.0",
