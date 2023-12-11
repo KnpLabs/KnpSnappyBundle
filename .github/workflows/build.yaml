@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-20.04
         steps:
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
             - name: Validate composer.json
@@ -58,7 +58,7 @@ jobs:
             - run: |
                   sed -ri 's/"symfony\/(.+)": "(.+)"/"symfony\/\1": "'${{ matrix.symfony }}'"/' composer.json;
               if: matrix.symfony
-            - run: composer config minimum-stability dev && composer config prefer-stable false
+            - run: composer config minimum-stability dev && composer config prefer-stable true
               if: matrix.dev
             - run: composer update --no-interaction --no-progress --ansi ${{ matrix.composer_option }}
             - run: vendor/bin/simple-phpunit -v
