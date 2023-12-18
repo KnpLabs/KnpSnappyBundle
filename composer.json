@@ -31,11 +31,7 @@
         }
     },
     "require-dev": {
-        "symfony/asset": "^5.1|^6.0|^7.0",
-        "symfony/finder": "^5.1|^6.0|^7.0",
-        "symfony/phpunit-bridge": "^5.1|^6.0|^7.0",
-        "symfony/security-csrf": "^5.1|^6.0|^7.0",
-        "symfony/validator": "^5.1|^6.0|^7.0",
+        "phpunit/phpunit": "^8.5",
         "symfony/yaml": "^5.1|^6.0|^7.0"
     }
 }
