@@ -20,32 +20,31 @@ jobs:
             fail-fast: false
             matrix:
                 include:
-                    - description: 'No Symfony specified'
-                      php: '7.4'
-                    - description: 'Lowest deps'
-                      php: '7.4'
-                      composer_option: '--prefer-lowest'
-                      env:
-                          SYMFONY_DEPRECATIONS_HELPER: max[self]=0
-                    - description: 'PHP 8.0'
-                      php: '8.0'
-                    - description: 'PHP 8.1'
-                      php: '8.1'
-                    - description: 'PHP 8.2'
+                    - description: 'Symfony 7.1 DEV'
                       php: '8.2'
-                    - description: 'PHP 8.3'
+                      symfony: '7.1.*@dev'
+                    - description: 'Symfony 7.0'
                       php: '8.3'
-                    - description: 'Dev deps'
-                      php: '8.2'
-                      dev: true
+                      symfony: '7.0.*'
+                    - description: 'Symfony 6.4'
+                      php: '8.1'
+                      symfony: '6.4.*'
+                    - description: 'Symfony 6.0'
+                      php: '8.3'
+                      symfony: '6.0.*'
+                    - description: 'Symfony 5.4'
+                      php: '8.1'
+                      symfony: '5.4.*'
+                    - description: 'Symfony 5.0'
+                      php: '8.3'
+                      symfony: '5.0.*'
+                    - description: 'Beta deps'
+                      php: '8.1'
+                      beta: true
         name: PHP ${{ matrix.php }} tests (${{ matrix.description }})
         steps:
             - name: Checkout
               uses: actions/checkout@v3
-            - run: |
-                phpenv config-rm xdebug.ini || true
-                composer global config --no-plugins allow-plugins.symfony/flex true
-                composer global require --no-progress --no-scripts --no-plugins symfony/flex 1.*
             - name: Cache
               uses: actions/cache@v3
               with:
@@ -58,7 +57,9 @@ jobs:
             - run: |
                   sed -ri 's/"symfony\/(.+)": "(.+)"/"symfony\/\1": "'${{ matrix.symfony }}'"/' composer.json;
               if: matrix.symfony
-            - run: composer config minimum-stability dev && composer config prefer-stable true
-              if: matrix.dev
-            - run: composer update --no-interaction --no-progress --ansi ${{ matrix.composer_option }}
-            - run: vendor/bin/simple-phpunit -v
+            - run: |
+                  composer config minimum-stability dev
+                  composer config prefer-stable true
+              if: matrix.beta
+            - run: composer update --prefer-dist --no-interaction --no-progress --ansi ${{ matrix.composer_option }}
+            - run: vendor/bin/phpunit
