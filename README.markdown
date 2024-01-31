@@ -25,7 +25,7 @@ With [composer](https://getcomposer.org), require:
 composer require knplabs/knp-snappy-bundle
 ```
 
-Then enable it in your kernel (optional if you are using the Flex recipe with Symfony >= 4) :
+If you are not using Flex, enable it in your kernel :
 
 ```php
 // config/bundles.php
@@ -43,7 +43,7 @@ Configuration
 If you need to change the binaries, change the instance options or even disable one or both services, you can do it through the configuration.
 
 ```yaml
-# app/config/config.yml (or config/packages/knp_snappy.yaml if using Symfony4 and the Flex recipe)
+# config/packages/knp_snappy.yaml
 knp_snappy:
     pdf:
         enabled:    true
@@ -58,7 +58,7 @@ knp_snappy:
 If you want to change temporary folder which is ```sys_get_temp_dir()``` by default, you can use
 
 ```yaml
-# app/config/config.yml (or config/packages/knp_snappy.yaml if using Symfony4 and the Flex recipe)
+# config/packages/knp_snappy.yaml
 knp_snappy:
     temporary_folder: "%kernel.cache_dir%/snappy"
 ```
@@ -66,7 +66,7 @@ knp_snappy:
 You can also configure the timeout used by the generators with `process_timeout`:
 
 ```yaml
-# app/config/config.yml (or config/packages/knp_snappy.yaml if using Symfony4 and the Flex recipe)
+# config/packages/knp_snappy.yaml
 knp_snappy:
     process_timeout: 20 # In seconds
 ```
