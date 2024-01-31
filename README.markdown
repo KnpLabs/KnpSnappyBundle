@@ -21,7 +21,9 @@ Installation
 
 With [composer](https://getcomposer.org), require:
 
-`composer require knplabs/knp-snappy-bundle`
+```bash
+composer require knplabs/knp-snappy-bundle
+```
 
 Then enable it in your kernel (optional if you are using the Flex recipe with Symfony >= 4) :
 
