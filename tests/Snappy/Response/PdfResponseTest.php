@@ -34,4 +34,10 @@ class PdfResponseTest extends TestCase
 
         $this->assertSame($fileName, $matches[1]);
     }
+
+    public function testSpecialCharacters(): void
+    {
+        $response = new PdfResponse('', 'Ä.jpg', 'image/jpg', fileNameFallBack: 'thefilenamefallback.jpg');
+        $this->assertSame('attachment; filename=thefilenamefallback.jpg; filename*=utf-8\'\'%C3%84.jpg', str_replace('"', '', $response->headers->get('Content-Disposition')));
+    }
 }
