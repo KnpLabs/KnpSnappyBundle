@@ -24,7 +24,7 @@ class LoggableGenerator implements GeneratorInterface
      * @param GeneratorInterface $generator
      * @param LoggerInterface    $logger
      */
-    public function __construct(GeneratorInterface $generator, LoggerInterface $logger = null)
+    public function __construct(GeneratorInterface $generator, ?LoggerInterface $logger = null)
     {
         $this->generator = $generator;
         $this->logger = $logger;
