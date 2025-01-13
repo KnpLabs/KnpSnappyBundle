@@ -1,3 +1,4 @@
+TESTCI
 KnpSnappyBundle
 ===============
 
