@@ -89,21 +89,21 @@ $knpSnappyImage->generate('http://www.google.fr', '/path/to/the/image.jpg');
 ### Generate a pdf document from a URL
 
 ```php
-// @var Knp\Snappy\Pdf
+// @var \Knp\Snappy\Pdf
 $knpSnappyPdf->generate('http://www.google.fr', '/path/to/the/file.pdf');
 ```
 
 ### Generate a pdf document from multiple URLs
 
 ```php
-// @var Knp\Snappy\Pdf
+// @var \Knp\Snappy\Pdf
 $knpSnappyPdf->generate(array('http://www.google.fr', 'http://www.knplabs.com', 'http://www.google.com'), '/path/to/the/file.pdf');
 ```
 
 ### Generate a pdf document from a twig view
 
 ```php
-// @var Knp\Snappy\Pdf
+// @var \Knp\Snappy\Pdf
 $knpSnappyPdf->generateFromHtml(
     $this->renderView(
         'MyBundle:Foo:bar.html.twig',
@@ -123,7 +123,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SomeController extends AbstractController
 {
-    public function imageAction(Knp\Snappy\Image $knpSnappyImage)
+    public function imageAction(\Knp\Snappy\Image $knpSnappyImage)
     {
         $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
             'some'  => $vars
@@ -145,7 +145,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SomeController extends AbstractController
 {
-    public function pdfAction(Knp\Snappy\Pdf $knpSnappyPdf)
+    public function pdfAction(\Knp\Snappy\Pdf $knpSnappyPdf)
     {
         $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
             'some'  => $vars
@@ -167,7 +167,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SomeController extends AbstractController
 {
-    public function pdfAction(Knp\Snappy\Pdf $knpSnappyPdf)
+    public function pdfAction(\Knp\Snappy\Pdf $knpSnappyPdf)
     {
         $pageUrl = $this->generateUrl('homepage', array(), true); // use absolute path!
 
