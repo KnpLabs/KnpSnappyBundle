@@ -22,7 +22,7 @@ jobs:
                 include:
                     - description: 'Symfony 7.4 DEV'
                       php: '8.2'
-                      symfony: '7.4.*@dev'
+                      symfony: '7.4'
                       dev: true
                     - description: 'Symfony 7.0 (PHP 8.5)'
                       php: '8.5'
