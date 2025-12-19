@@ -6,7 +6,7 @@ use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 class KnpSnappyExtension extends Extension
 {
@@ -15,14 +15,14 @@ class KnpSnappyExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
+        $loader = new PHPFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
 
         $configuration = new Configuration();
         $processor = new Processor();
         $config = $processor->processConfiguration($configuration, $configs);
 
         if ($config['pdf']['enabled']) {
-            $loader->load('pdf.xml');
+            $loader->load('pdf.php');
 
             $container->setParameter('knp_snappy.pdf.binary', $config['pdf']['binary']);
             $container->setParameter('knp_snappy.pdf.options', $config['pdf']['options']);
@@ -39,7 +39,7 @@ class KnpSnappyExtension extends Extension
         }
 
         if ($config['image']['enabled']) {
-            $loader->load('image.xml');
+            $loader->load('image.php');
 
             $container->setParameter('knp_snappy.image.binary', $config['image']['binary']);
             $container->setParameter('knp_snappy.image.options', $config['image']['options']);
