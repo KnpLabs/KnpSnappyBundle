@@ -20,10 +20,12 @@ jobs:
             fail-fast: false
             matrix:
                 include:
-                    - description: 'Symfony 7.1 DEV'
+                    - description: 'Symfony 7.4 (PHP 8.2)'
                       php: '8.2'
-                      symfony: '7.1.*@dev'
-                      dev: true
+                      symfony: '7.4'
+                    - description: 'Symfony 7.0 (PHP 8.5)'
+                      php: '8.5'
+                      symfony: '7.0.*'
                     - description: 'Symfony 7.0 (PHP 8.4)'
                       php: '8.4'
                       symfony: '7.0.*'
