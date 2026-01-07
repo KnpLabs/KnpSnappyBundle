@@ -20,7 +20,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             ]
         )
         ->call('setLogger', [service('logger')])
-        ->tag('monolog.setLogger', ['channel' => 'snappy'])
+        ->tag('monolog.logger', ['channel' => 'snappy'])
         ->public()
         ->alias('knp_snappy.pdf', Knp\Snappy\Pdf::class)
         ;
