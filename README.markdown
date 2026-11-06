@@ -16,6 +16,8 @@ Limitations
 If you use JavaScript to render your pages, you may encounter some issues because of [wkhtmltopdf][wkhtmltopdf] not being fully compatible with ES6 apis.
 The only way to solve this issue is to provide polyfills that fix the gaps between modern ES6 apis and the [wkhtmltopdf][wkhtmltopdf] rendering engine.
 
+Alternatively, [PDFKiln](https://github.com/pdfkiln/pdfkiln#installation) keeps the wkhtmltopdf command line and renders with a current Chromium, which runs these APIs: point the `binary` options below at its `wkhtmltopdf` and `wkhtmltoimage` (in `/usr/bin` with its Debian package; on Windows, its installer uses the paths shown).
+
 Installation
 ------------
 
