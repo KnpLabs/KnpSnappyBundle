@@ -20,6 +20,9 @@ jobs:
             fail-fast: false
             matrix:
                 include:
+                    - description: 'Symfony 8.0 (PHP 8.6)'
+                      php: '8.6'
+                      symfony: '8.0.*'
                     - description: 'Symfony 8.0'
                       php: '8.4'
                       symfony: '8.0.*'
